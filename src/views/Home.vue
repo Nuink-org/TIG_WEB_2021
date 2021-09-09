@@ -1,32 +1,22 @@
 <template>
   <div id="home">
-    <section class="landing">
-      <h1>landing page</h1>
+    <section class="landing-wrapper">
+      <landing />
     </section>
-    <section class="concept">
-
-    </section>
-    <section class="about">
-
-    </section>
-    <section class="projects">
-
-    </section>
-    <section class="news"></section>
-    <section class="gallery"></section>
-    <section class="footer"></section>
   </div>
 </template>
 
 <script>
+import Landing from '@/components/Landing.vue'
+
 export default {
-  name: 'Home',
   components: {
+    Landing
+  },
+  setup() {
   }
 }
 </script>
 
 <style scoped lang="scss">
-#home {
-}
 </style>
