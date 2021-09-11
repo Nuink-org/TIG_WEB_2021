@@ -45,11 +45,11 @@ export default {
     left: 80px;
 
     .title {
-      font-size: 64px;
+      font-size: $font-size-landing-title;
     }
 
     .date {
-      font-size: 45px;
+      font-size: $font-size-landing-date;
       transform: translateY(-100px);
     }
   }
