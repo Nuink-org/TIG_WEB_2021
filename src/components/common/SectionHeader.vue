@@ -25,10 +25,6 @@ export default {
 
 <style scoped lang='scss'>
 .section {
-  &-header {
-    margin-bottom: 2rem;
-  }
-
   &-title {
     display: inline-block;
     font-size: $font-size-section-header;
