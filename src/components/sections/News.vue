@@ -1,7 +1,10 @@
 <template>
   <wrapper>
-    <div class='news'>
+    <div class="news">
       <section-header title="news" />
+      <div class="section-content">
+
+      </div>
     </div>
   </wrapper>
 </template>

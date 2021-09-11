@@ -1,6 +1,6 @@
 <template>
-  <header class='section-header'>
-    <div class='section-title'>
+  <header class="section-header">
+    <div class="section-title">
       {{ sectionTitle }}
     </div>
   </header>

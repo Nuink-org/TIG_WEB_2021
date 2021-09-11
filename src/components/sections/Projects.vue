@@ -1,6 +1,6 @@
 <template>
   <wrapper>
-    <div class='projects'>
+    <div class="projects">
       <h1>projects</h1>
     </div>
   </wrapper>
