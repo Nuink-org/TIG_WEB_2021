@@ -1,11 +1,17 @@
 <template>
-  <div class='about'>
-    <h1>about</h1>
-  </div>
+  <wrapper>
+    <div class='about'>
+      <h1>about</h1>
+    </div>
+  </wrapper>
 </template>
 
 <script>
+import Wrapper from '@/components/common/Wrapper.vue'
 export default {
+  components: {
+    Wrapper,
+  },
   setup() {}
 }
 </script>
