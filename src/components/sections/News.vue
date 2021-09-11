@@ -1,25 +1,24 @@
 <template>
-  <div class="news">
-    <section-base
-      :isWrapperFull="false"
-      title="news"
-    >
-      <template #content>
-        <div class="news-content">
-          <div class="news-list">
-            <news-item v-for="news in newsList"  
-              :key="news.content"
-              :date="news.date"
-              :content="news.content"
-            />
-          </div>
-          <div class="news-twitter">
-            Twitter
-          </div>
+  <section-base
+    :isWrapperFull="false"
+    title="news"
+    class="news"
+  >
+    <template #content>
+      <div class="news-content">
+        <div class="news-list">
+          <news-item v-for="news in newsList"  
+            :key="news.content"
+            :date="news.date"
+            :content="news.content"
+          />
         </div>
-      </template>
-    </section-base>
-  </div>
+        <div class="news-twitter">
+          Twitter
+        </div>
+      </div>
+    </template>
+  </section-base>
 </template>
 
 <script>

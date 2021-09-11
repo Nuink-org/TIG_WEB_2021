@@ -1,5 +1,5 @@
 <template>
-  <wrapper :isFull="isWrapperFull">
+  <wrapper :isFull="isWrapperFull" class="section-base">
     <div v-if="isTitleNeeded" class="section-base__header">
       <section-header :title="title" />
     </div>
@@ -38,15 +38,15 @@ export default {
 
 <style scoped lang='scss'>
 .section-base {
-  &__header,
-  &__content {
-    text-align: center;
-  }
+  text-align: center;
   &__header {
     margin-bottom: 2rem;
   }
   &__content {
     color: #fff;
+  }
+  & + & {
+    margin-top: 4rem;
   }
 }
 </style>

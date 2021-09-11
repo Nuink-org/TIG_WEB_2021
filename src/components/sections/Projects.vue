@@ -1,23 +1,25 @@
 <template>
-  <div class="projects">
-    <section-base
-      :isWrapperFull="false"
-      title="projects"
-    >
-      <template #content>
-        <div class="projects-list">
-          
-        </div>
-      </template>
-    </section-base>
-  </div>
+  <section-base
+    :isWrapperFull="false"
+    title="projects"
+    class="projects"
+  >
+    <template #content>
+      <projects-overview />
+      <div class="projects-list">
+        
+      </div>
+    </template>
+  </section-base>
 </template>
 
 <script>
 import SectionBase from '@/components/common/SectionBase.vue'
+import ProjectsOverview from '@/components/projects/ProjectsOverview.vue'
 export default {
-  components: { 
+  components: {
     SectionBase,
+    ProjectsOverview
   },
   setup() {}
 }
