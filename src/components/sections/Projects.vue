@@ -1,16 +1,23 @@
 <template>
-  <wrapper>
-    <div class="projects">
-      <h1>projects</h1>
-    </div>
-  </wrapper>
+  <div class="projects">
+    <section-base
+      :isWrapperFull="false"
+      title="projects"
+    >
+      <template #content>
+        <div class="projects-list">
+          
+        </div>
+      </template>
+    </section-base>
+  </div>
 </template>
 
 <script>
-import Wrapper from '@/components/common/Wrapper.vue'
+import SectionBase from '@/components/common/SectionBase.vue'
 export default {
   components: { 
-    Wrapper 
+    SectionBase,
   },
   setup() {}
 }

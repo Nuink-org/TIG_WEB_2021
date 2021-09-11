@@ -49,8 +49,6 @@ export default {
 
 <style scoped lang='scss'>
 .news {
-  text-align: center;
-
   &-content {
     display: flex;
     justify-content: flex-end;
