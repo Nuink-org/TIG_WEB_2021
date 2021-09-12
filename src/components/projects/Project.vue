@@ -1,7 +1,15 @@
 <template>
   <div class="project">
     <div class="project-thumbnail">
-      <slot name="thumbnail" />
+      <div v-if="isReleased">
+        <thumbnail
+          :url="projectUrl"
+          :imageName="imageName"
+        />
+      </div>
+      <div v-else>
+        <upcoming-board />
+      </div>
     </div>
     <div class="project-title">
       {{ title }}
@@ -23,7 +31,13 @@
 </template>
 
 <script>
+import UpcomingBoard from '@/components/projects/UpcomingBoard.vue'
+import Thumbnail from '@/components/projects/Thumbnail.vue'
 export default {
+  components: {
+    UpcomingBoard,
+    Thumbnail
+  },
   props: {
     order: {
       type: Number,
@@ -40,6 +54,18 @@ export default {
     collaborators: {
       type: Array,
       default: () => []
+    },
+    isReleased: {
+      type: Boolean,
+      default: false
+    },
+    projectUrl: {
+      type: String,
+      default: ''
+    },
+    imageName: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -48,7 +74,6 @@ export default {
 <style scoped lang="scss">
 .project {
   width: 40rem;
-
   &-title {
     margin-top: 2rem;
     border-bottom: 1px solid #fff;
