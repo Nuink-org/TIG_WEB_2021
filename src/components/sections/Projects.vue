@@ -31,7 +31,7 @@ export default {
         collaborators: [],
         isReleased: true,
         projectUrl: 'https://mimunojun.github.io/0808web/',
-        imageName: '知識人.png',
+        imageName: 'tishiki_thumbnail.png',
       },
       {
         title: "Music Experiment",
