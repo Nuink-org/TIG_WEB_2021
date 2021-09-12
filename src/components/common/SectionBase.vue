@@ -1,9 +1,9 @@
 <template>
-  <wrapper :isFull="isWrapperFull">
-    <div v-if="isTitleNeeded" class="section-header">
+  <wrapper :isFull="isWrapperFull" class="section-base">
+    <div v-if="isTitleNeeded" class="section-base__header">
       <section-header :title="title" />
     </div>
-    <div class="section-content">
+    <div class="section-base__content">
       <slot name="content" />
     </div>
   </wrapper>
@@ -37,12 +37,16 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.section {
-  &-header {
+.section-base {
+  text-align: center;
+  &__header {
     margin-bottom: 2rem;
   }
-  &-content {
+  &__content {
     color: #fff;
+  }
+  & + & {
+    margin-top: 4rem;
   }
 }
 </style>
