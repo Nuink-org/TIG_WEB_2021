@@ -58,7 +58,6 @@ export default {
 
 <style scoped lang='scss'>
 .about {
-  margin-top: 4rem;
   margin-left: auto;
   position: relative;
   &-image {
