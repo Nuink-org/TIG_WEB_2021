@@ -1,10 +1,12 @@
 <template>
   <wrapper :isFull="isWrapperFull" class="section-base">
-    <div v-if="isTitleNeeded" class="section-base__header">
-      <section-header :title="title" />
-    </div>
-    <div class="section-base__content">
-      <slot name="content" />
+    <div class="section-base__wrapper" :class="{'section-base__wrapperRight': isRight}">
+      <div v-if="isTitleNeeded" class="section-base__header">
+        <section-header :title="title" />
+      </div>
+      <div class="section-base__content">
+        <slot name="content" />
+      </div>
     </div>
   </wrapper>
 </template>
@@ -26,7 +28,11 @@ export default {
     title: {
       type: String,
       default: ''
-    }
+    },
+    isRight: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const isTitleNeeded = computed(() => props.title !== '')
@@ -39,6 +45,14 @@ export default {
 <style scoped lang='scss'>
 .section-base {
   text-align: center;
+  display: flex;
+  &__wrapper {
+    width: 100%
+  }
+  &__wrapperRight {
+    width: 40%;
+    margin-left: auto;
+  }
   &__header {
     margin-bottom: 2rem;
   }
