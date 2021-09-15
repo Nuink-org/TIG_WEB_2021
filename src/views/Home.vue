@@ -1,26 +1,12 @@
 <template>
   <div id="home">
-    <section class="landing-wrapper">
-      <landing />
-    </section>
-    <section class="concept-wrapper">
-      <concept />
-    </section>
-    <section class="about-wrapper">
-      <about />
-    </section>
-    <section class="projects-wrapper">
-      <projects />
-    </section>
-    <section class="news-wrapper">
-      <news />
-    </section>
-    <section class="gallery-wrapper">
-      <gallery />
-    </section>
-    <section class="footer-wrapper">
-      <page-footer />
-    </section>
+    <landing />
+    <concept />
+    <about />
+    <projects />
+    <news />
+    <gallery />
+    <page-footer />
   </div>
 </template>
 

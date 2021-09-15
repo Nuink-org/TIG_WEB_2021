@@ -1,5 +1,5 @@
 <template>
-  <div class='page-footer'>
+  <div class="page-footer">
     <h1>footer</h1>
     <img src="../../assets\images\Nu-logo-02.png" class="logo-tsukuba">
     <img src="../../assets\images\Nu-logo-02.png" class="logo-nuink">
