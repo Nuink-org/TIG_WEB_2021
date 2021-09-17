@@ -1,13 +1,19 @@
 <template>
   <div class="landing">
-    <div class="caption">
-      <div class="title">
-        <h1 :key="title" v-for="(title, idx) in titles" :style="{transform: 'translateY(' + translateAmount(idx) + 'px)'}">
-          {{ title }}
-        </h1>
+    <div class="title">
+      <h1 class="title-tsukuba">TSUKUBA</h1>
+      <h1 class="title-innovation">INNVOATION</h1>
+      <h1 class="title-gallery">GALLERY</h1>
+    </div>
+    <div class="date">
+      2021.11.6-7
+    </div>
+    <div class="organizer">
+      <div class="presents">
+        presents by
       </div>
-      <div class="date">
-        <h1>2021.11.6-7</h1>
+      <div class="nu-ink">
+        Nu ink.          
       </div>
     </div>
   </div>
@@ -16,37 +22,61 @@
 <script>
 export default {
   setup() {
-    const titles = ['TSUKUBA', 'INNOVATION', 'GALLERY']
-
-    // titleの上下の字間を埋めるためのtranslate
-    const translateAmount = (idx) => {
-      const stepSize = 50
-      return -stepSize * idx
-    }
-
-    return { titles, translateAmount }
   }
 }
 </script>
 
 <style scoped lang='scss'>
 .landing {
-  position: relative;
   width: 100%;
   height: 100vh;
-
-  .caption {
-    position: absolute;
-    top: 128px;
-    left: 80px;
-
-    .title {
-      font-size: $font-size-landing-title;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title,
+  .date,
+  .nu-ink {
+    font-weight: 700;
+  }
+  .title {
+    font-size: $font-size-landing-title;
+    &-tsukuba {
+      transform: translate(-120px, 20px);
+      // position: absolute;
+      // top: 25%;
+      // left: 27%;
     }
-
-    .date {
-      font-size: $font-size-landing-date;
-      transform: translateY(-100px);
+    &-innovation {
+      transform: translate(136px, 0px);
+      // position: absolute;
+      // top: 38%;
+      // left: 39%;
+    }
+    &-gallery {
+      transform: translate(-18px, -20px);
+      // position: absolute;
+      // top: 51%;
+      // left: 34%;
+    }
+  }
+  .date {
+    font-family: $font-family-number;
+    font-size: $font-size-landing-date;
+    transform: translate(270px, -10px);
+    // position: absolute;
+    // top: 67%;
+    // left: 56%;
+  }
+  .organizer{ 
+    margin-top: 45px;
+    // position: absolute;
+    // top: 83%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    .nu-ink {
+      font-size: $font-size-landing-nuink;
     }
   }
 }

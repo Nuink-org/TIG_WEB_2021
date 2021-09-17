@@ -2,14 +2,19 @@
   <renderer ref="renderer" antialias resize="window">
     <camera :position="{ z: 10 }" />
     <scene ref="scene">
-      <point-light :position="{ y: 50, z: 50 }" />
+      <point-light v-for="light in lights"
+        :key="light.color"
+        :color="light.color"
+        :intensity="light.intensity"
+        :position="{ x: light.position[0], y: light.position[1], z: light.position[2] }"
+      />
       <noisy-sphere ref="sphere"
-        :radius="2"
+        :radius="3.7"
         :widthSegments="64"
         :heightSegments="64"
         :timeCoef="0.0006"
-        :noiseCoef="0.35"
-        :dispCoef="1.1"
+        :noiseCoef="0.25"
+        :dispCoef="0.9"
       >
         <lambert-material />
       </noisy-sphere>
@@ -35,7 +40,16 @@ export default {
     const scene = ref(null)
     const sphere = ref(null)
 
-    return { renderer, scene, sphere }
+    const lightRadius = 30
+    const lightIntensity = 0.9
+    const lights = [
+      { color: "#e2007e", intensity: lightIntensity, position: [lightRadius*Math.cos(-45/180*Math.PI), lightRadius*Math.sin(-45/180*Math.PI), -12] },
+      { color: "#019fe8", intensity: lightIntensity, position: [lightRadius*Math.cos(45/180*Math.PI), lightRadius*Math.sin(45/180*Math.PI), -12] },
+      { color: "#fff000", intensity: lightIntensity, position: [lightRadius*Math.cos(125/180*Math.PI), lightRadius*Math.sin(125/180*Math.PI), -12] },
+      { color: "#eeeeee", intensity: lightIntensity, position: [lightRadius*Math.cos(-125/180*Math.PI), lightRadius*Math.sin(-125/180*Math.PI), -12] },
+    ]
+
+    return { renderer, scene, sphere, lights }
   }
 }
 </script>
