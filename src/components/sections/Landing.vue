@@ -1,5 +1,5 @@
 <template>
-  <div class="landing" :style="{backgroundImage: 'url(' + topImagePath + ')'}">
+  <div class="landing">
     <div class="caption">
       <div class="title">
         <h1 :key="title" v-for="(title, idx) in titles" :style="{transform: 'translateY(' + translateAmount(idx) + 'px)'}">
@@ -17,7 +17,6 @@
 export default {
   setup() {
     const titles = ['TSUKUBA', 'INNOVATION', 'GALLERY']
-    const topImagePath = require('@/assets/images/landing.jpg')
 
     // titleの上下の字間を埋めるためのtranslate
     const translateAmount = (idx) => {
@@ -25,7 +24,7 @@ export default {
       return -stepSize * idx
     }
 
-    return { titles, topImagePath, translateAmount }
+    return { titles, translateAmount }
   }
 }
 </script>
@@ -35,9 +34,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-size: 1380px auto;
-  background-repeat: no-repeat;
-  background-position: right bottom;
 
   .caption {
     position: absolute;
