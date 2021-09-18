@@ -2,7 +2,7 @@
   <div class="landing">
     <div class="title">
       <h1 class="title-tsukuba">TSUKUBA</h1>
-      <h1 class="title-innovation">INNVOATION</h1>
+      <h1 class="title-innovation">INNOVATION</h1>
       <h1 class="title-gallery">GALLERY</h1>
     </div>
     <div class="date">

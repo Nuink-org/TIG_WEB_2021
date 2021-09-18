@@ -13,7 +13,6 @@
 }
 body{
   font-family: $font-family-standard;
-  // font-weight: 400;
   background-color: #000;  /* 背景の基本カラーは黒 */
   color: #fff;             /* 文字の基本カラーは白 */
 }
