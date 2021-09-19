@@ -32,7 +32,7 @@
     </div>
     <div class="organizer">
       <div class="presents">
-        presents by
+        presented by
       </div>
       <div class="nu-ink">
         Nu ink.          
@@ -159,6 +159,7 @@ export default {
     left: 56%;
   }
   .organizer{ 
+    font-size: 14.5px;
     margin-top: 45px;
     position: absolute;
     top: 83%;
