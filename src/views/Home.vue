@@ -38,12 +38,8 @@ export default {
   setup() {
     const store = useStore()
     const animCompleted = computed(() => store.state.landingAnimCompleted )
-    console.log(animCompleted.value)
 
     return { animCompleted }
   }
 }
 </script>
-
-<style scoped lang="scss">
-</style>
