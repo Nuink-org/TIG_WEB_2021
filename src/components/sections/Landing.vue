@@ -1,56 +1,172 @@
 <template>
-  <div class="landing" :style="{backgroundImage: 'url(' + topImagePath + ')'}">
-    <div class="caption">
-      <div class="title">
-        <h1 :key="title" v-for="(title, idx) in titles" :style="{transform: 'translateY(' + translateAmount(idx) + 'px)'}">
-          {{ title }}
-        </h1>
+  <div class="landing">
+    <!-- <div class="v-line" /> -->
+    <div class="title">
+      <div class="title-tsukuba">
+        <span>T</span>
+        <span class="title-hidden__tsukuba" v-for="(t, i) in revealTitles[0]"
+          :key="i"
+        >
+          {{ t }}
+        </span>
       </div>
-      <div class="date">
-        <h1>2021.11.6-7</h1>
+      <div class="title-innovation">
+        <span>I</span>
+        <span class="title-hidden__innovation" v-for="(t, i) in revealTitles[1]"
+          :key="i"
+        >
+          {{ t }}
+        </span>
+      </div>
+      <div class="title-gallery">
+        <span>G</span>
+        <span class="title-hidden__gallery" v-for="(t, i) in revealTitles[2]"
+          :key="i"
+        >
+          {{ t }}
+        </span>
+      </div>
+    </div>
+    <div class="date">
+      2021.11.6-7
+    </div>
+    <div class="organizer">
+      <div class="presents">
+        presented by
+      </div>
+      <div class="nu-ink">
+        Nu ink.          
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import gsap from 'gsap'
 export default {
   setup() {
-    const titles = ['TSUKUBA', 'INNOVATION', 'GALLERY']
-    const topImagePath = require('@/assets/images/landing.jpg')
+    // タイトルで後から現れてくる部分 
+    const revealTitles = [Array.from("SUKUBA"), Array.from("NNOVATION"), Array.from("ALLERY")] 
+    const initDelay = 3
 
-    // titleの上下の字間を埋めるためのtranslate
-    const translateAmount = (idx) => {
-      const stepSize = 50
-      return -stepSize * idx
-    }
+    // animation
+    onMounted(() => {
+      gsap.from('.title-tsukuba', {
+        duration: 2.5,
+        delay: initDelay,
+        left: '48%',
+        ease: 'expo.out'
+      })
+      gsap.from('.title-innovation', {
+        duration: 2.5,
+        delay: initDelay,
+        left: '49%',
+        ease: 'expo.out'
+      })
+      gsap.from('.title-gallery', {
+        duration: 2.5,
+        delay: initDelay, 
+        left: '48%',
+        ease: 'expo.out'
+      })
+      gsap.from('.title-hidden__tsukuba', {
+        duration: 2.5,
+        delay: initDelay,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'expo.out'
+      })
+      gsap.from('.title-hidden__innovation', {
+        duration: 2.5,
+        delay: initDelay,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'expo.out'
+      })
+      gsap.from('.title-hidden__gallery', {
+        duration: 2.5,
+        delay: initDelay,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'expo.out'
+      })
+      gsap.from('.date', {
+        duration: 2.5,
+        opacity: 0,
+        delay: initDelay+3,
+        left: '50%',
+        ease: 'expo.out',
+      })
+      gsap.from('.organizer', {
+        duration: 1.5,
+        delay: initDelay,
+        top: '67%',
+        ease: 'expo.out'
+      })
+    })
 
-    return { titles, topImagePath, translateAmount }
+    return { revealTitles }
   }
 }
 </script>
 
 <style scoped lang='scss'>
 .landing {
-  position: relative;
   width: 100%;
   height: 100vh;
-  background-size: 1380px auto;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-
-  .caption {
+  .v-line {
+    border-left: 0.5px solid #fff;
+    height: 100vh;
     position: absolute;
-    top: 128px;
-    left: 80px;
-
-    .title {
-      font-size: $font-size-landing-title;
+    left: 50%;
+    margin-left: -0.25px;
+    top: 0;
+  }
+  .title,
+  .date,
+  .nu-ink {
+    font-weight: 700;
+  }
+  .title {
+    font-size: $font-size-landing-title;
+    &-tsukuba {
+      position: absolute;
+      top: 25%;
+      left: 27%;
     }
-
-    .date {
-      font-size: $font-size-landing-date;
-      transform: translateY(-100px);
+    &-innovation {
+      position: absolute;
+      top: 38%;
+      left: 39%;
+    }
+    &-gallery {
+      position: absolute;
+      top: 51%;
+      left: 34%;
+    }
+    &-hidden {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .date {
+    font-family: $font-family-number;
+    font-size: $font-size-landing-date;
+    position: absolute;
+    top: 67%;
+    left: 56%;
+  }
+  .organizer{ 
+    font-size: 14.5px;
+    margin-top: 45px;
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .nu-ink {
+      font-size: $font-size-landing-nuink;
     }
   }
 }

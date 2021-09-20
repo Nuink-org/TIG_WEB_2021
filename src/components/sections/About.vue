@@ -65,7 +65,7 @@ export default {
     position: absolute;
     top: -80px;
     left: -200px;
-    z-index: -1;
+    z-index: $layer-about-image;
 
     img {
       width: 100%;

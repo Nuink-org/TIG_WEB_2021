@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <drawing />
     <landing />
     <concept />
     <about />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
 import Concept from '@/components/sections/Concept.vue'
 import About from '@/components/sections/About.vue'
@@ -21,6 +23,7 @@ import PageFooter from '@/components/sections/PageFooter.vue'
 
 export default {
   components: {
+    Drawing,
     Landing,
     Concept,
     About,

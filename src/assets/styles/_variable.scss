@@ -1,8 +1,15 @@
 // screen size
 $screen-size-restricted: 1200px;
+// layer-order
+$layer-about-image: -1;
+$layer-drawing: -2;
+// font family
+$font-family-standard: 'Work Sans', 'Noto Sans JP', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
+$font-family-number: 'Arimo', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
 // font size
-$font-size-landing-title: 48px;
-$font-size-landing-date: 34px;
+$font-size-landing-title: 96px;
+$font-size-landing-date: 46px;
+$font-size-landing-nuink: 29px;
 $font-size-concept-title: 48px;
 $font-size-concept-subTitle: 27px;
 $font-size-section-header: 24px;
