@@ -43,12 +43,14 @@
 
 <script>
 import { onMounted } from 'vue'
+import { useStore } from 'vuex'
 import gsap from 'gsap'
 export default {
   setup() {
     // タイトルで後から現れてくる部分 
     const revealTitles = [Array.from("SUKUBA"), Array.from("NNOVATION"), Array.from("ALLERY")] 
     const initDelay = 3
+    const store = useStore()
 
     // animation
     onMounted(() => {
@@ -97,6 +99,7 @@ export default {
         delay: initDelay+3,
         left: '50%',
         ease: 'expo.out',
+        onComplete: () => store.commit('completeLandingAnim') // animation完了を通知
       })
       gsap.from('.organizer', {
         duration: 1.5,
