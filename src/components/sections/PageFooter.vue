@@ -5,35 +5,35 @@
     <template #content>
       <div class="footer-bg">
         <box class="page-footer">
-          <a href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer">
-            <img src="../../assets\images\Nu-logo-02.png" class="logo-nuink">
-          </a>
-            <div>
-              <div class="footer-upper">
-                <h3 class="right-up-child">筑波大学学生団体 Nu ink.</h3>
-                <p class="right-up-child">official website</p>
-                <a href="https://twitter.com/NuinkTSUKUBA" target="_blank" rel="noopener noreferrer">
-                  <img src="../../assets\images\Twitter-logo.png" class="logos logo-tw" >
-                </a>
-                <div class="between-logos"></div>
-                <a href="https://www.instagram.com/nuinktsukuba/?hl=ja" target="_blank" rel="noopener noreferrer">
-                  <img src="../../assets\images\Instagram-logo.png" class="logos ">
-                </a>
-                <div class="between-logos"></div>
-                <a href="https://www.youtube.com/channel/UCCthlOqY7CCTtZ4gzQDvzmg/featured" target="_blank" rel="noopener noreferrer">
-                  <img src="../../assets\images\YouTube-logo.png" class="logos logo-yt">
-                </a>
-                <div class="between-logos"></div>
-              </div>
-              <div class="description">
-                <p>筑波大学とラジオ局J-WAVEが主催する、テクノロジーと音楽のクリエイティブフェス INNOVATION WORLD FESTA (イノフェス)の筑波大学学生運営チーム。普段なら交わらない"人"や"学問"をつないでイノベーションを起こすという目標を掲げて活動中！</p>
-              </div>
+          <img src="@/assets\images\Nu-logo-02.png" class="logo-nuink">
+          <div>
+            <div class="footer-upper">
+              <h3 class="right-up-child">筑波大学学生団体 Nu ink.</h3>
+              
+              <a class="right-up-child web_link" href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer"><p >official website</p> </a>
+
+              <a href="https://twitter.com/nuinktsukuba"  target="_blank" rel="noopener noreferrer">
+              <img src="@/assets\images\Twitter-logo.png" class="logos logo-tw" >
+              </a>
+              <div class="between-logos"></div>
+              <a href="https://www.instagram.com/nuinktsukuba/?hl=ja" target="_blank" rel="noopener noreferrer">
+                <img src="@/assets\images\Instagram-logo.png" class="logos ">
+              </a>
+              <div class="between-logos"></div>
+              <a href="https://www.youtube.com/channel/UCCthlOqY7CCTtZ4gzQDvzmg/featured" target="_blank" rel="noopener noreferrer">
+                <img src="../../assets\images\YouTube-logo.png" class="logos logo-yt">
+              </a>
+              <div class="between-logos"></div>
             </div>
+            <div class="description">
+              <p>筑波大学とラジオ局J-WAVEが主催する、テクノロジーと音楽のクリエイティブフェス INNOVATION WORLD FESTA (イノフェス)の筑波大学学生運営チーム。普段なら交わらない"人"や"学問"をつないでイノベーションを起こすという目標を掲げて活動中！</p>
+            </div>
+          </div>
         </box>
-      </div>
         <div class="copyright">
-          <p>© Nu ink. 20XX. All rights reserved.</p>
+          <p>©2021. Nu ink. All rights reserved.</p>
         </div>
+      </div>
     </template>
   </section-base>
 </template>
@@ -65,6 +65,14 @@ export default {
   .right-up-child{
     margin-right: 70px;
   }
+  .web_link{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    height: 0px;
+    background: #f00;
+    margin-top: 8px;
+  }
   .logo-nuink{
     width: 241px;
     height: 150px;
@@ -94,5 +102,7 @@ export default {
   .copyright{
     clear: both;
     text-align: center;
+    color: #000;
+    margin-top: 50px;
   }
 </style>
