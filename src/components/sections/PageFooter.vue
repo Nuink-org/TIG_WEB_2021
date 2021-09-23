@@ -1,7 +1,9 @@
 <template>
   <section-base
-  :isWrapperFull="true"
-    class="pagefooter">
+    :isLateReveal="true"
+    :isWrapperFull="true"
+    class="pagefooter"  
+  >
     <template #content>
       <div class="footer-bg">
         <box class="page-footer">
@@ -10,18 +12,18 @@
             <div class="footer-upper">
               <h3 class="right-up-child">筑波大学学生団体 Nu ink.</h3>
               
-              <a class="right-up-child web_link" href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer"><p >official website</p> </a>
+              <a class="right-up-child web_link" href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer"><p>official website</p></a>
 
               <a href="https://twitter.com/nuinktsukuba"  target="_blank" rel="noopener noreferrer">
-              <img src="@/assets\images\Twitter-logo.png" class="logos logo-tw" >
+                <img src="@/assets/images/Twitter-logo.png" class="logos logo-tw" >
               </a>
               <div class="between-logos"></div>
               <a href="https://www.instagram.com/nuinktsukuba/?hl=ja" target="_blank" rel="noopener noreferrer">
-                <img src="@/assets\images\Instagram-logo.png" class="logos ">
+                <img src="@/assets/images/Instagram-logo.png" class="logos ">
               </a>
               <div class="between-logos"></div>
               <a href="https://www.youtube.com/channel/UCCthlOqY7CCTtZ4gzQDvzmg/featured" target="_blank" rel="noopener noreferrer">
-                <img src="../../assets\images\YouTube-logo.png" class="logos logo-yt">
+                <img src="@/assets/images/YouTube-logo.png" class="logos logo-yt">
               </a>
               <div class="between-logos"></div>
             </div>

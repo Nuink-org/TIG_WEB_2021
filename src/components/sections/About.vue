@@ -1,5 +1,6 @@
 <template>
   <section-base
+    :isLateReveal="true"
     :isWrapperFull="false"
     :isRight="true"
     title="about"
@@ -60,6 +61,7 @@ export default {
 .about {
   margin-left: auto;
   position: relative;
+  height: 100%;
   &-image {
     width: 1000px;
     position: absolute;
