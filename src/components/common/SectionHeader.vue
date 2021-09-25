@@ -26,7 +26,9 @@ export default {
 <style scoped lang='scss'>
 .section {
   &-title {
+    color: $color-title;
     display: inline-block;
+    font-family: $font-family-standard;
     font-size: $font-size-section-header;
     font-weight: bold;
     border-bottom: 2px solid #fff;

@@ -68,13 +68,15 @@ export default {
     margin-left: auto;
   }
   &__header {
-    margin-bottom: 2rem;
+    margin-bottom: $margin-section-header-bottom;
   }
   &__content {
-    color: #fff;
+    color: $color-content;
+    font-size: $font-size-section-content;
+    font-family: $font-family-jp;
   }
   & + & {
-    margin-top: 4rem;
+    margin-top: $margin-section;
   }
 }
 </style>

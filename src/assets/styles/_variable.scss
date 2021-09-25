@@ -4,13 +4,26 @@ $screen-size-restricted: 1200px;
 $layer-about-image: -1;
 $layer-drawing: -2;
 // font family
-$font-family-standard: 'Work Sans', 'Noto Sans JP', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
+$font-family-standard: 'Work Sans', 'Sawarabi Gothic', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
+$font-family-jp: 'Sawarabi Gothic', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
 $font-family-number: 'Arimo', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
+$font-family-nuink-nu: sans-serif;
+$font-family-nuink-ink: 'ClarendonW01-Medium';
 // font size
 $font-size-landing-title: 96px;
 $font-size-landing-date: 46px;
-$font-size-landing-nuink: 29px;
-$font-size-concept-title: 48px;
-$font-size-concept-subTitle: 27px;
-$font-size-section-header: 24px;
-$font-size-section-content: 15px;
+$font-size-landing-nuink: 26px;
+$font-size-concept-title: 64px;
+$font-size-concept-subTitle: 32px;
+$font-size-section-header: 52px;
+$font-size-section-content: 17px;
+$font-size-upcoming-board: 32px;
+$font-size-content-overview: 27px;
+// margin
+$margin-section-header-bottom: 3rem;
+$margin-section: 4.85rem;
+$margin-paragraph: 1.85rem;
+$sentence-height: 1.85rem;
+// color
+$color-title: #fff;
+$color-content: #eee;

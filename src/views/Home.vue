@@ -16,7 +16,7 @@ import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
 import Concept from '@/components/sections/Concept.vue'
 import About from '@/components/sections/About.vue'
-import Projects from '@/components/sections/Projects.vue'
+import Contents from '@/components/sections/Contents.vue'
 import News from '@/components/sections/News.vue'
 import Gallery from '@/components/sections/Gallery.vue'
 import PageFooter from '@/components/sections/PageFooter.vue'
@@ -26,7 +26,7 @@ export default {
     Landing,
     Concept,
     About,
-    Projects,
+    Contents,
     News,
     Gallery,
     PageFooter

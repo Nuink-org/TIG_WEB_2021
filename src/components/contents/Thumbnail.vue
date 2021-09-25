@@ -1,7 +1,7 @@
 <template>
   <div class="thumbnail">
     <a :href="url">
-      <img :src="imgSrc" alt="projectThumbnail">
+      <img :src="imgSrc" alt="contentThumbnail">
     </a>
   </div>
 </template>

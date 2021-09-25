@@ -2,13 +2,13 @@
   <section-base
     :isLateReveal="true"
     :isWrapperFull="false"
-    title="projects"
-    class="projects"
+    title="contents"
+    class="contents"
   >
     <template #content>
-      <projects-overview />
-      <project-list 
-        :projects="projects"
+      <contents-overview />
+      <content-list 
+        :contents="contents"
       />
     </template>
   </section-base>
@@ -16,22 +16,22 @@
 
 <script>
 import SectionBase from '@/components/common/SectionBase.vue'
-import ProjectsOverview from '@/components/projects/ProjectsOverview.vue'
-import ProjectList from '@/components/projects/ProjectList.vue'
+import ContentsOverview from '@/components/contents/ContentsOverview.vue'
+import ContentList from '@/components/contents/ContentList.vue'
 export default {
   components: {
     SectionBase,
-    ProjectsOverview,
-    ProjectList
+    ContentsOverview,
+    ContentList
   },
   setup() {
-    const projects = [
+    const contents = [
       {
         title: "Strolling in Tsukuba Univ. with Intellectuals",
         description: "持っている知識によって同じ景色も違って見える。筑波大学の教員はどのような視点から日常を見ているのだろうか。様々な知識人と共に筑波大学を歩くことで、新たな日常の見方を発見しよう！あなたならではの視点も募集中！",
         collaborators: [],
         isReleased: true,
-        projectUrl: 'https://mimunojun.github.io/0808web/',
+        url: 'https://mimunojun.github.io/0808web/',
         imageName: 'tishiki_thumbnail.png',
       },
       {
@@ -39,7 +39,7 @@ export default {
         description: "人工知能を用いて楽曲を制作する自動作曲技術の紹介、実演を行う。情報技術によって創作が身近なものとなっていることを体感できる内容になっている。本イベントのコンセプト「New Normal」のもと新時代の音楽のあり方を紐解く!",
         collaborators: [],
         isReleased: false,
-        projectUrl: '',
+        url: '',
         imageName: '',
       },
       {
@@ -49,7 +49,7 @@ export default {
           "ヨビノリたくみ (教育系YouTuber)"
         ],
         isReleased: false,
-        projectUrl: '',
+        url: '',
         imageName: '',
       },
       {
@@ -60,7 +60,7 @@ export default {
           "土佐凛斗（筑波大学ダンスサークルRealjam）"
         ],
         isReleased: false,
-        projectUrl: '',
+        url: '',
         imageName: '',
       },
       {
@@ -73,18 +73,18 @@ export default {
           "すいのこ (プロゲーマー兼ライター)"
         ],
         isReleased: false,
-        projectUrl: '',
+        url: '',
         imageName: '',
       }
     ]
 
-    return { projects }
+    return { contents }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.project-list {
+.content-list {
   margin-top: 4rem;
 }
 </style>

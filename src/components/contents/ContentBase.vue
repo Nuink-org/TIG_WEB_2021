@@ -1,9 +1,9 @@
 <template>
-  <div class="project">
-    <div class="project-thumbnail">
+  <div class="content-base">
+    <div class="content-base__thumbnail">
       <div v-if="isReleased">
         <thumbnail
-          :url="projectUrl"
+          :url="url"
           :imageName="imageName"
         />
       </div>
@@ -11,17 +11,17 @@
         <upcoming-board />
       </div>
     </div>
-    <div class="project-title">
+    <div class="content-base__title">
       {{ title }}
     </div>
-    <div class="project-description">
+    <div class="content-base__description">
       {{ description }}
     </div>
-    <div v-if="collaborators.length > 0" class="project-collaboration">
+    <div v-if="collaborators.length > 0" class="content-base__collaboration">
       協力者
       <div 
         v-for="colab in collaborators" 
-        class="project-collaborators"
+        class="content-base__collaborators"
         :key="colab"
       >
         {{ colab }}
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import UpcomingBoard from '@/components/projects/UpcomingBoard.vue'
-import Thumbnail from '@/components/projects/Thumbnail.vue'
+import UpcomingBoard from '@/components/contents/UpcomingBoard.vue'
+import Thumbnail from '@/components/contents/Thumbnail.vue'
 export default {
   components: {
     UpcomingBoard,
@@ -59,7 +59,7 @@ export default {
       type: Boolean,
       default: false
     },
-    projectUrl: {
+    url: {
       type: String,
       default: ''
     },
@@ -72,17 +72,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.project {
+.content-base {
   width: 40rem;
-  &-title {
+  line-height: $sentence-height;
+  &__title {
+    font-size: 27px;
     margin-top: 2rem;
     border-bottom: 1px solid #fff;
     line-height: 2rem;
   }
-  &-description {
+  &__description {
     margin-top: 1.2rem;
   }
-  &-collaboration {
+  &__collaboration {
     margin-top: 1.2rem;
   }
   & + & {

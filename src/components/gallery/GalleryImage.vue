@@ -23,7 +23,7 @@ export default {
 
 <style scoped lang="scss">
 .gallery-image {
-  height: 400px;
+  height: 280px;
   img {
     width: auto;
     height: 100%;

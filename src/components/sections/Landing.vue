@@ -35,7 +35,7 @@
         presented by
       </div>
       <div class="nu-ink">
-        Nu ink.          
+        <span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
       </div>
     </div>
   </div>
@@ -118,14 +118,7 @@ export default {
 .landing {
   width: 100%;
   height: 100vh;
-  .v-line {
-    border-left: 0.5px solid #fff;
-    height: 100vh;
-    position: absolute;
-    left: 50%;
-    margin-left: -0.25px;
-    top: 0;
-  }
+  color: $color-title;
   .title,
   .date,
   .nu-ink {
@@ -170,6 +163,13 @@ export default {
     transform: translate(-50%, -50%);
     .nu-ink {
       font-size: $font-size-landing-nuink;
+      .nu {
+        font-family: $font-family-nuink-nu;
+      }
+      .ink {
+        letter-spacing: 1.7px;
+        font-family: $font-family-nuink-ink;
+      }
     }
   }
 }
