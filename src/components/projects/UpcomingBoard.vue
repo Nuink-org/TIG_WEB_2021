@@ -70,8 +70,7 @@ export default {
     align-items: center;
   }
   &__sentence {
-    //TODO: font-sizeの変更
-    font-size: $font-size-section-header;
+    font-size: $font-size-upcoming-board;
   }
   &__time {
     

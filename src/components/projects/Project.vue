@@ -74,6 +74,7 @@ export default {
 <style scoped lang="scss">
 .project {
   width: 40rem;
+  line-height: $sentence-height;
   &-title {
     margin-top: 2rem;
     border-bottom: 1px solid #fff;
