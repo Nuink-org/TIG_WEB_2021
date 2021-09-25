@@ -17,8 +17,8 @@
 <style scoped lang="scss">
 .projects-overview {
   &__titles {
-    margin: 2rem;
-    font-size: 1.2rem;
+    margin: 1.15rem;
+    font-size: $font-size-content-overview;
     font-weight: bold;
   }
 }
