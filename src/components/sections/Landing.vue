@@ -35,7 +35,7 @@
         presented by
       </div>
       <div class="nu-ink">
-        Nu ink.          
+        <span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
       </div>
     </div>
   </div>
@@ -163,6 +163,13 @@ export default {
     transform: translate(-50%, -50%);
     .nu-ink {
       font-size: $font-size-landing-nuink;
+      .nu {
+        font-family: "serif";
+      }
+      .ink {
+        letter-spacing: 1.7px;
+        font-family: "ClarendonW01-Medium";
+      }
     }
   }
 }
