@@ -8,7 +8,7 @@
         New Normal
       </div>
       <div class="concept-subTitle">
-        ~新たなありかたの模索~
+        ～新たなありかたの模索～
       </div>
       <div class="concept-sentence">
         コロナ禍において<br>
@@ -41,6 +41,7 @@ export default {
   align-items: center;
   margin-bottom: 15rem;
   &-title {
+    font-family: $font-family-standard;
     font-size: $font-size-concept-title;
     font-weight: bold;
   }

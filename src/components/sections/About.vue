@@ -42,7 +42,7 @@ export default {
 
     const imgPadding = computed(() => {
       // 画像の位置をabsoluteで指定しているため、余分にpadding-bottomする必要がある
-      const paddingAmount = imageHeight.value * 0.618
+      const paddingAmount = imageHeight.value * 0.382 
       return {'padding-bottom': paddingAmount.toString() + 'px'}
     })
 
@@ -73,8 +73,9 @@ export default {
     }
   }
   &-sentence {
-    margin-top: 4rem;
-    line-height: 2rem;
+    // margin-top: 4rem;
+    text-align: left;
+    line-height: $sentence-height;
   }
   &-paragraph + &-paragraph {
     margin-top: 3rem;
