@@ -4,7 +4,7 @@
     <landing />
     <concept />
     <about />
-    <projects />
+    <contents />
     <news />
     <gallery />
     <page-footer />
