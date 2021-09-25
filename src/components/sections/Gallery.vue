@@ -1,5 +1,6 @@
 <template>
   <section-base
+    :isLateReveal="true"
     :isWrapperFull="true"
     title="gallery"
     class="gallery"

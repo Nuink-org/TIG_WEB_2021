@@ -2,20 +2,16 @@
   <div id="home">
     <drawing />
     <landing />
-    <div v-if="animCompleted">
-      <concept />
-      <about />
-      <contents />
-      <news />
-      <gallery />
-      <page-footer />
-    </div>
+    <concept />
+    <about />
+    <projects />
+    <news />
+    <gallery />
+    <page-footer />
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
 import Concept from '@/components/sections/Concept.vue'
@@ -35,12 +31,6 @@ export default {
     Gallery,
     PageFooter
   },
-  setup() {
-    const store = useStore()
-    const animCompleted = computed(() => store.state.landingAnimCompleted )
-
-    return { animCompleted }
-  }
 }
 </script>
 

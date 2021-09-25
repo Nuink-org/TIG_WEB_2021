@@ -1,5 +1,6 @@
 <template>
   <section-base
+    :isLateReveal="true"
     :isWrapperFull="false"
     title="contents"
     class="contents"
