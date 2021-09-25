@@ -72,8 +72,5 @@ export default {
   &__sentence {
     font-size: $font-size-upcoming-board;
   }
-  &__time {
-    
-  }
 }
 </style>
