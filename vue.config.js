@@ -7,6 +7,7 @@ module.exports = {
       scss: {
         additionalData: `
           @import "@/assets/styles/_variable.scss";
+          @import "@/assets/styles/app.scss";
         `
       }
     }

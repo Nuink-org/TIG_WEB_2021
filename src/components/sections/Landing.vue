@@ -164,11 +164,11 @@ export default {
     .nu-ink {
       font-size: $font-size-landing-nuink;
       .nu {
-        font-family: "serif";
+        font-family: $font-family-nuink-nu;
       }
       .ink {
         letter-spacing: 1.7px;
-        font-family: "ClarendonW01-Medium";
+        font-family: $font-family-nuink-ink;
       }
     }
   }
