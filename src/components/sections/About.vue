@@ -78,7 +78,7 @@ export default {
     line-height: $sentence-height;
   }
   &-paragraph + &-paragraph {
-    margin-top: 3rem;
+    margin-top: $margin-paragraph;
   }
 }
 </style>
