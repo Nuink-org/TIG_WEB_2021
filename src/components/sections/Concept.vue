@@ -40,7 +40,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15rem;
   &-title {
     font-family: $font-family-standard;
     font-size: $font-size-concept-title;

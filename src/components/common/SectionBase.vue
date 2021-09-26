@@ -1,6 +1,7 @@
 <template>
   <wrapper 
-    :isFull="isWrapperFull" 
+    :isFull="isWrapperFull"
+    :bgImageName="bgImageName"
     class="section-base" 
     :style="visibility"
   >
@@ -33,6 +34,10 @@ export default {
     isWrapperFull: {
       type: Boolean,
       required: true
+    },
+    bgImageName: {
+      type: String,
+      default: ''
     },
     title: {
       type: String,
