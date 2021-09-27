@@ -1,0 +1,11 @@
+@mixin white-bg {
+  &::before {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    transform-origin: center left;
+    background-color: #fff;
+  }
+}
