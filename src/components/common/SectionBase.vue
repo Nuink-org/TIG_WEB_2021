@@ -3,7 +3,6 @@
     :isFull="isWrapperFull"
     :bgImageName="bgImageName"
     class="section-base" 
-    :style="visibility"
   >
     <div class="section-base__wrapper" :class="{'section-base__wrapperRight': isRight}">
       <div v-if="isTitleNeeded" class="section-base__header">
@@ -13,12 +12,11 @@
         <slot name="content" />
       </div>
     </div>
-  </wrapper>
+</wrapper>
 </template>
 
 <script> 
 import { computed } from 'vue'
-import { useStore } from 'vuex'
 import Wrapper from '@/components/common/Wrapper.vue'
 import SectionHeader from '@/components/common/SectionHeader.vue'
 export default {
@@ -27,10 +25,6 @@ export default {
     SectionHeader
   },
   props: {
-    isLateReveal: {
-      type: Boolean,
-      default: false,
-    },
     isWrapperFull: {
       type: Boolean,
       required: true
@@ -49,14 +43,8 @@ export default {
     },
   },
   setup(props) {
-    const store = useStore()
-    const animCompleted = computed(() => store.state.landingAnimCompleted)
     const isTitleNeeded = computed(() => props.title !== '')
-    const visibility = computed(() => {
-      return props.isLateReveal && !animCompleted.value ? {display: 'none'} : {display: 'flex'}
-    })
-
-    return { visibility, isTitleNeeded }
+    return { isTitleNeeded }
   }
 }
 </script>
