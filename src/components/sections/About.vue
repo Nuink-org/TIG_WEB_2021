@@ -1,6 +1,5 @@
 <template>
   <section-base
-    :isLateReveal="true"
     :isWrapperFull="false"
     :isRight="true"
     bgImageName="about.jpeg"
