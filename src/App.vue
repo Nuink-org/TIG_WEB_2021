@@ -12,6 +12,7 @@
   box-sizing: border-box;
 }
 body{
+  cursor: none;
   font-family: $font-family-standard;
   background-color: #000;  /* 背景の基本カラーは黒 */
 }
