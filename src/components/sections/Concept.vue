@@ -4,9 +4,6 @@
     class="concept"
   >
     <template #content>
-      <!-- <div class="concept-section__title">
-        CONCEPT
-      </div> -->
       <div class="concept-title">
         <div class="concept-title__sentence">
           New Normal
@@ -18,8 +15,8 @@
         </div>
       </div>
       <div class="concept-description">
-        <div class="concept-description__wrapper" v-for="sentence in conceptSentences" :key="sentence">
-          <div class="concept-description__sentence">
+        <div class="concept-description__wrapper" v-for="(sentence, idx) in conceptSentences" :key="sentence">
+          <div :class="`concept-description__sentence concept-description__sentence${idx+1}`">
             {{ sentence }}
           </div>
         </div>
@@ -45,15 +42,6 @@ export default {
     onMounted(() => {
       // timelineを使いたかったが、他のセクションでもgsapを使用しているためか上手くできなかった。
       // そのため手付で調整
-      // gsap.to(".concept-section__title", {
-      //   scrollTrigger: {
-      //     trigger: ".concept-title",
-      //     start: "center center",
-      //   },
-      //   ease: "SloMo",
-      //   left: "50%",
-      //   duration: 1.6
-      // })
       gsap.from(CSSRulePlugin.getRule(".concept-title__sentence::before"), {
         cssRule: {
           width: "100%"
@@ -77,19 +65,21 @@ export default {
         delay: 0.16,
         duration: 1.6
       })
-      gsap.from(CSSRulePlugin.getRule(".concept-description__sentence::before"), {
-        cssRule: {
-          width: "100%"
-        },
-        scrollTrigger: {
-          trigger: ".concept-title",
-          start: "center center",
-        },
-        ease: "circ",
-        delay: 0.64,
-        stagger: 0.16,
-        duration: 1.6
-      })
+      // staggerとかでずらしたいが上手くいかなかったためループで少しずつずらす
+      for (let i = 1; i <= conceptSentences.length; i++) {
+        gsap.from(CSSRulePlugin.getRule(`.concept-description__sentence${i}::before`), {
+          cssRule: {
+            width: "100%"
+          },
+          scrollTrigger: {
+            trigger: ".concept-title",
+            start: "center center",
+          },
+          ease: "circ",
+          delay: 0.3 + 0.1 * i,
+          duration: 1.6
+        })
+      }
     })
 
     return { conceptSentences }
@@ -104,16 +94,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // &-section__title {
-  //   position: fixed;
-  //   top: 50%;
-  //   left: -100%;
-  //   transform: translate(-50%, -50%);
-  //   font-size: $font-size-concept-section-title;
-  //   color: #000;
-  //   text-stroke: 1px #aaa;
-  //   -webkit-text-stroke: 1px #aaa;
-  // }
   &-title, &-subTitle, &-description {
     &__sentence {
       display: inline-block;
@@ -142,7 +122,26 @@ export default {
       margin: 0.6rem;
       display: block
     }
-    &__sentence {
+    // 別々で定義しないとアニメーションが上手くいかない
+    &__sentence1 {
+      @include white-bg;
+    }
+    &__sentence2 {
+      @include white-bg;
+    }    
+    &__sentence3 {
+      @include white-bg;
+    }
+    &__sentence4 {
+      @include white-bg;
+    }
+    &__sentence5 {
+      @include white-bg;
+    }
+    &__sentence6 {
+      @include white-bg;
+    }
+    &__sentence7 {
       @include white-bg;
     }
   }
