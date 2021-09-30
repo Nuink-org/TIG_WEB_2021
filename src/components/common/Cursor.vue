@@ -33,6 +33,9 @@ export default {
   border: 1px solid #fff;
   background-color: #fff;
   border-radius: 50%;
+  user-select: none;
+  pointer-events: none;
+  z-index: $layer-cursor;
   position: absolute;
   transform: translate(-50%, -50%);
   transform-origin: center;

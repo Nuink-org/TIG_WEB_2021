@@ -28,7 +28,7 @@
 <script>
 import { onMounted } from 'vue'
 import SectionBase from '../common/SectionBase.vue'
-import gsap from 'gsap'
+import { gsap, Power2 } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
 gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
@@ -50,8 +50,8 @@ export default {
           trigger: ".concept-title",
           start: "center center",
         },
-        ease: "circ",
-        duration: 1.6
+        ease: Power2.easeIn,
+        duration: 0.618
       })
       gsap.from(CSSRulePlugin.getRule(".concept-subTitle__sentence::before"), {
         cssRule: {
@@ -61,9 +61,9 @@ export default {
           trigger: ".concept-title",
           start: "center center",
         },
-        ease: "circ",
+        ease: Power2.easeIn,
         delay: 0.16,
-        duration: 1.6
+        duration: 0.618
       })
       // staggerとかでずらしたいが上手くいかなかったためループで少しずつずらす
       for (let i = 1; i <= conceptSentences.length; i++) {
@@ -75,9 +75,9 @@ export default {
             trigger: ".concept-title",
             start: "center center",
           },
-          ease: "circ",
+          ease: Power2.easeIn,
           delay: 0.3 + 0.1 * i,
-          duration: 1.6
+          duration: 0.618
         })
       }
     })
