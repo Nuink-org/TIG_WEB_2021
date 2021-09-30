@@ -36,6 +36,7 @@ export default {
   position: absolute;
   transform: translate(-50%, -50%);
   transform-origin: center;
+  z-index: $layer-cursor;
   transition-duration: 160ms;
   transition-timing-function: ease-out;
   animation: radiusScaling .6s infinite alternate;
