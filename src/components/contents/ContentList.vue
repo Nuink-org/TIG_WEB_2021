@@ -2,15 +2,16 @@
   <div class="content-list">
     <content-base
       v-for="(content, idx) in contents"
-      :key="content.title"
-      :order="idx+1"
-      :title="content.title"
+      :key="content.titleEN"
+      :isInfoLeft="isInfoLeft(idx)"
+      :titleEN="content.titleEN"
+      :titleJP="content.titleJP"
       :description="content.description"
       :collaborators="content.collaborators"
       :isReleased="content.isReleased"
       :url="content.url"
       :imageName="content.imageName"
-    /> 
+    />
   </div>
 </template>
 
@@ -25,6 +26,14 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  setup() {
+    // 偶数番目のコンテンツカードは説明文がサムネイルの左に来るようにする。
+    const isInfoLeft = (order) => {
+      return order % 2 === 0
+    }
+    
+    return { isInfoLeft }
   }
 }
 </script>

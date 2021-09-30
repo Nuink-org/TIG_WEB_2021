@@ -3,7 +3,7 @@
     <cursor />
     <drawing />
     <landing />
-    <template v-if="animCompleted">
+    <template v-if="true">
       <concept />
       <about />
       <contents />

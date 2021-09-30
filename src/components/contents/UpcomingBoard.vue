@@ -51,7 +51,7 @@ export default {
   color: #000;
   background-color: #fff;
   text-align: center;
-  width: 100%;
+  min-width: 30rem;
   position: relative;
   &::before {
     content: "";

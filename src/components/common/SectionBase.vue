@@ -69,7 +69,7 @@ export default {
     font-family: $font-family-jp;
   }
   & + & {
-    margin-top: $margin-section;
+    padding-top: $margin-section;
   }
 }
 </style>
