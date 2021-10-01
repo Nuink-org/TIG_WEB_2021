@@ -47,7 +47,7 @@ export default {
     font-size: $font-size-section-header;
     border-bottom: 2px solid #fff;
     font-weight: bold;
-    margin-top: 21rem;
+    margin-top: 14rem;
   }
   &-sentence {
     margin-top: 3rem;
