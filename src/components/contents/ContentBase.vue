@@ -1,49 +1,61 @@
 <template>
-  <div class="content-base">
-    <div class="content-base__thumbnail">
-      <div v-if="isReleased">
-        <thumbnail
-          :url="url"
-          :imageName="imageName"
-        />
-      </div>
-      <div v-else>
-        <upcoming-board />
-      </div>
+  <div class="content-base"
+    :class="additionalBgClass"
+  >
+    <div class="content-base__titleEN">
+      {{ titleEN }}
     </div>
-    <div class="content-base__title">
-      {{ title }}
-    </div>
-    <div class="content-base__description">
-      {{ description }}
-    </div>
-    <div v-if="collaborators.length > 0" class="content-base__collaboration">
-      協力者
-      <div 
-        v-for="colab in collaborators" 
-        class="content-base__collaborators"
-        :key="colab"
-      >
-        {{ colab }}
+    <div class="content-base__card">
+      <content-info
+        v-if="isMounted && isInfoLeft"
+        :titleJP="titleJP"
+        :description="description"
+        :infoHeight="thumbnailHeight"
+        :paddingRight="40"
+      />
+      <div class="content-base__thumbnail" ref="thumbnailRef">
+        <div v-if="isReleased">
+          <thumbnail
+            :url="url"
+            :imageName="imageName"
+          />
+        </div>
+        <div v-else>
+          <upcoming-board />
+        </div>
       </div>
+      <content-info
+        v-if="isMounted && !isInfoLeft"
+        :titleJP="titleJP"
+        :description="description"
+        :infoHeight="thumbnailHeight"
+        :paddingLeft="40"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { ref, onMounted, computed } from 'vue'
 import UpcomingBoard from '@/components/contents/UpcomingBoard.vue'
 import Thumbnail from '@/components/contents/Thumbnail.vue'
+import ContentInfo from '@/components/contents/ContentInfo.vue'
 export default {
   components: {
     UpcomingBoard,
-    Thumbnail
+    Thumbnail,
+    ContentInfo
   },
   props: {
-    order: {
-      type: Number,
+    isInfoLeft: {
+      type: Boolean,
       required: true
     },
-    title: {
+    titleEN: {
+      type: String,
+      required: true,
+    },
+    titleJP: {
       type: String,
       required: true,
     },
@@ -67,28 +79,72 @@ export default {
       type: String,
       default: ''
     }
+  },
+  setup(props) {
+    const isMounted = ref(false)
+    const thumbnailRef = ref(null)
+    const thumbnailHeight = ref(0)
+    const additionalBgClass = computed(() => props.isInfoLeft ? 'additional-bg__left' : 'additional-bg__right')
+
+    onMounted(() => {
+      // thumbnaiilとinfoの高さを揃えるために、
+      // 取得したthumbnailの高さをinfoの高さにする
+      thumbnailHeight.value = thumbnailRef.value.clientHeight
+      isMounted.value = true
+    })
+
+    return { isMounted, thumbnailRef, thumbnailHeight, additionalBgClass }
   }
 }
 </script>
 
 <style scoped lang="scss">
 .content-base {
-  width: 40rem;
+  width: 60rem;
+  height: 27rem;
   line-height: $sentence-height;
-  &__title {
-    font-size: 27px;
-    margin-top: 2rem;
-    border-bottom: 1px solid #fff;
-    line-height: 2rem;
+  background-color: #000;
+  position: relative;
+  margin-top: 10rem;
+  &__titleEN {
+    color: #fff;
+    font-size: $font-size-content-titleEN;
+    font-family: $font-family-standard;
+    position: absolute;
+    z-index: $layer-content-titleEN;
+    // background-color: blue;
+    width: 500%;
+    height: 150px;
+    top: -25px;
+    text-align: left;
   }
-  &__description {
-    margin-top: 1.2rem;
+  &__card {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  &__collaboration {
-    margin-top: 1.2rem;
+}
+.additional-bg__left {
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: black;
   }
-  & + & {
-    margin-top: 4rem;
+}
+.additional-bg__right {
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: black;
   }
 }
 </style>

@@ -29,8 +29,8 @@ export default {
 
 <style scoped lang="scss">
 .thumbnail {
+  width: 30rem;
   position: relative;
-  width: 100%;
   &::before {
     content: "";
     display: block;

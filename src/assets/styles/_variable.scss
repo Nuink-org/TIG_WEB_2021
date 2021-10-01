@@ -1,7 +1,8 @@
 // screen size
 $screen-size-restricted: 1200px;
 // layer-order
-$layer-cursor: 1;
+$layer-cursor: 10;
+$layer-content-titleEN: 1;
 $layer-about-image: -1;
 $layer-drawing: -2;
 // font family
@@ -20,6 +21,7 @@ $font-size-concept-subTitle: 32px;
 $font-size-section-header: 52px;
 $font-size-section-content: 17px;
 $font-size-upcoming-board: 32px;
+$font-size-content-titleEN: 114px;
 $font-size-content-overview: 27px;
 // margin
 $margin-section-header-bottom: 3rem;
