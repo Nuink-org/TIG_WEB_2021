@@ -89,7 +89,10 @@ export default {
 
 <style scoped lang="scss">
 .contents {
-  background-color: #fff;
+  background: linear-gradient(217deg, #019fe8ff, #019fe822 61.8%),
+              linear-gradient(127deg, #fff000ff, #fff00022 61.8%),
+              linear-gradient(53deg, #e2007eff, #e2007e22 61.8%),
+              linear-gradient(240deg, #eeeeeeff, #eeeeee22 61.8%);
   overflow: hidden;
 }
 .content-list {

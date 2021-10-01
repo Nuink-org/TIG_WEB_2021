@@ -107,7 +107,7 @@ export default {
   position: relative;
   margin-top: 10rem;
   &__titleEN {
-    color: #f00;
+    color: #fff;
     font-size: $font-size-content-titleEN;
     font-family: $font-family-standard;
     position: absolute;
