@@ -3,7 +3,7 @@
     <cursor />
     <drawing />
     <landing />
-    <template v-if="true">
+    <template v-if="animCompleted">
       <concept />
       <about />
       <contents />
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-// import { ref, computed, onMounted } from 'vue'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
@@ -67,7 +66,7 @@ export default {
     const store = useStore()
     const animCompleted = computed(() => store.state.landingAnimCompleted)
 
-    return {animCompleted}
+    return { animCompleted }
   }
 }
 </script>
