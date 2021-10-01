@@ -15,5 +15,11 @@ body{
   cursor: none;
   font-family: $font-family-standard;
   background-color: #000;  /* 背景の基本カラーは黒 */
+  @include respond(tablet) {
+    font-size: 87.5%; // 1rem == 14px
+  }
+  @include respond(phone) {
+    font-size: 75%; // 1rem == 12px
+  }
 }
 </style>
