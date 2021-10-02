@@ -65,10 +65,10 @@ export default {
   }
   .footer-upper{
     display: flex;
-    margin-top: 30px;
+    padding-top: 50px;
   }
   .right-up-child{
-    margin-right: 135px;
+    margin-right: 230px;
   }
   .web_link{
     color: #000;
@@ -76,12 +76,11 @@ export default {
     display: block;
     height: 0px;
     background: #f00;
-    margin-top: 8px;
+    margin-top: 4px;
   }
   .logo-nuink{
-    width: 289px;
-    height: 180px;
-    margin-top: -5px;
+    width: 337px;
+    height: 210px;
   }
   .logos{
     width: 30px;
@@ -92,7 +91,7 @@ export default {
     margin-right: 25px;
   }
   .logo-tw{
-    border-radius: 6px;
+    border-radius: 7px;
     border-color: #fff;
   }
   .logo-yt{
@@ -102,14 +101,16 @@ export default {
     margin-left: -5px;
   }
   .description{
-    width: 650px;
+    width: 750px;
     margin-right: 100px;
     text-align: justify;
+    letter-spacing: -0.08em;
   }
   .copyright{
     clear: both;
     text-align: center;
     color: #000;
-    margin-top: 50px;
+    margin-top: 10px;
+    padding-bottom: 50px;
   }
 </style>
