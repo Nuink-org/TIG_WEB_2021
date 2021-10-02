@@ -3,7 +3,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Work+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 * {
@@ -12,8 +12,8 @@
   box-sizing: border-box;
 }
 body{
+  cursor: none;
   font-family: $font-family-standard;
   background-color: #000;  /* 背景の基本カラーは黒 */
-  color: #fff;             /* 文字の基本カラーは白 */
 }
 </style>

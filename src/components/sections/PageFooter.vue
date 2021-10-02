@@ -1,7 +1,8 @@
 <template>
   <section-base
-  :isWrapperFull="true"
-    class="pagefooter">
+    :isWrapperFull="true"
+    class="pagefooter"  
+  >
     <template #content>
       <div class="footer-bg">
         <box class="page-footer">
@@ -26,7 +27,7 @@
               </div>
               <div >
               <a href="https://www.youtube.com/channel/UCCthlOqY7CCTtZ4gzQDvzmg/featured" target="_blank" rel="noopener noreferrer">
-                <img src="../../assets\images\YouTube-logo.png" class="logos logo-yt">
+                <img src="@/assets/images/YouTube-logo.png" class="logos logo-yt">
               </a>
               </div>
             </div>

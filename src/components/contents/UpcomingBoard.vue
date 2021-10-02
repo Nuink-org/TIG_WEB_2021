@@ -51,7 +51,7 @@ export default {
   color: #000;
   background-color: #fff;
   text-align: center;
-  width: 100%;
+  min-width: 30rem;
   position: relative;
   &::before {
     content: "";
@@ -70,11 +70,7 @@ export default {
     align-items: center;
   }
   &__sentence {
-    //TODO: font-sizeの変更
-    font-size: $font-size-section-header;
-  }
-  &__time {
-    
+    font-size: $font-size-upcoming-board;
   }
 }
 </style>
