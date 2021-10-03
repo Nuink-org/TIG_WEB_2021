@@ -92,7 +92,6 @@ export default {
       width: 80%;
       margin: 0 auto;
       @include respond(tablet) {
-        // width: 100%;
         display: flex;
         margin: 0;
         width: 100%;

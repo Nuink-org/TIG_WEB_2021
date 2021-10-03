@@ -36,6 +36,10 @@ export default {
   align-items: center;
   border-bottom: 1px solid #fff;
   line-height: 2rem;
+  @include respond(phone) {
+    line-height: 1.4rem;
+    font-size: 0.95em;
+  }
   &__date {
     width: 10rem;
   }
