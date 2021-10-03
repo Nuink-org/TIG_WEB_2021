@@ -3,7 +3,7 @@
     <cursor />
     <drawing />
     <landing />
-    <template v-if="true">
+    <template v-if="isAnimCompleted">
       <concept />
       <about />
       <contents />
@@ -64,7 +64,7 @@ export default {
 
     // return { transformStyle }
     const store = useStore()
-    const animCompleted = computed(() => store.state.isLandingAnimCompleted)
+    const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
     onMounted(() => {
       // window.addEventListener('resize', () => store.commit('addResponsivenessTablet', { width: window.outerWidth }))
@@ -76,7 +76,7 @@ export default {
       })
     })
 
-    return { animCompleted }
+    return { isAnimCompleted }
   }
 }
 </script>
