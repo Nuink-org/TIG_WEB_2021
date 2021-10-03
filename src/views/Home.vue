@@ -3,7 +3,7 @@
     <cursor />
     <drawing />
     <landing />
-    <template v-if="animCompleted">
+    <template v-if="true">
       <concept />
       <about />
       <contents />
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 import Drawing from '@/components/three/Drawing.vue'
@@ -64,7 +64,17 @@ export default {
 
     // return { transformStyle }
     const store = useStore()
-    const animCompleted = computed(() => store.state.landingAnimCompleted)
+    const animCompleted = computed(() => store.state.isLandingAnimCompleted)
+
+    onMounted(() => {
+      // window.addEventListener('resize', () => store.commit('addResponsivenessTablet', { width: window.outerWidth }))
+      store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
+      store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
+      window.addEventListener('resize', () => {
+        store.commit('addResponsivenessTablet', { width: window.outerWidth })
+        store.commit('addResponsivenessPhone', { width: window.outerWidth }) 
+      })
+    })
 
     return { animCompleted }
   }
@@ -74,6 +84,7 @@ export default {
 <style scoped lang='scss'>
 #home {
   position: relative;
+  width: 100%;
   height: 100vh;
   // overflow-y: scroll;
   // -ms-overflow-style: none;

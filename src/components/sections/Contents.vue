@@ -1,6 +1,6 @@
 <template>
   <section-base
-    :isWrapperFull="false"
+    :isWrapperFull="isResponsivePhone || false"
     title="contents"
     class="contents"
   >
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import SectionBase from '@/components/common/SectionBase.vue'
 import ContentsOverview from '@/components/contents/ContentsOverview.vue'
 import ContentList from '@/components/contents/ContentList.vue'
@@ -24,6 +26,8 @@ export default {
     ContentList
   },
   setup() {
+    const store = useStore()
+    const isResponsivePhone = computed(() => store.state.isResponsivePhone)
     const contents = [
       {
         titleEN: "Strolling in Tsukuba Univ. with Intellectuals",
@@ -82,7 +86,7 @@ export default {
       }
     ]
 
-    return { contents }
+    return { isResponsivePhone, contents}
   }
 }
 </script>

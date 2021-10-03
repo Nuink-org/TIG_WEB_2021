@@ -57,10 +57,17 @@ export default {
 <style scoped lang="scss">
 .content-info {
   text-align: left;
+  @include respond(tablet) {
+    padding: 0 !important;
+    height: 100% !important;
+  }
   &__title {
-    font-size: 27px;
+    font-size: $font-size-content-overview;
     font-weight: bold;
     line-height: 2rem;
+    @include respond(phone) {
+      font-size: 1.618em;
+    }
   }
   &__description {
     margin-top: 1.618rem;
