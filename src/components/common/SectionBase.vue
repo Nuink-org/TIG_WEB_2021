@@ -12,7 +12,7 @@
         <slot name="content" />
       </div>
     </div>
-</wrapper>
+  </wrapper>
 </template>
 
 <script> 
