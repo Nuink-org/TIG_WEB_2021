@@ -114,6 +114,7 @@ export default {
       margin-right: auto;
       .ink {
         font-size: 1.1em;
+        letter-spacing: 1.5px;
       }
       @include respond(phone) {
         font-size: 0.98em;
@@ -164,6 +165,7 @@ export default {
     transform: translate(-50%, -50%);
     .ink {
       font-size: 1.1em;
+      letter-spacing: 1.1px;
     }
   }
   .nu {
@@ -172,7 +174,6 @@ export default {
   }
   .ink {
     font-weight: bold;
-    letter-spacing: 1.5px;
     font-family: $font-family-nuink-ink;
   }
 }
