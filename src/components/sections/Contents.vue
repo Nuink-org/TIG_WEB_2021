@@ -6,7 +6,7 @@
   >
     <template #content>
       <contents-overview />
-      <content-list 
+      <content-list
         :contents="contents"
       />
     </template>
@@ -97,6 +97,7 @@ export default {
               linear-gradient(127deg, #fff000ff, #fff00022 61.8%),
               linear-gradient(53deg, #e2007eff, #e2007e22 61.8%),
               linear-gradient(240deg, #eeeeeeff, #eeeeee22 61.8%);
+  background-color: #fff;
   overflow: hidden;
 }
 .content-list {
