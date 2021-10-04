@@ -99,7 +99,7 @@ export default {
     max-width: 600px;
     @include respond(tablet) {
       max-width: 480px;
-      min-height: 200px;
+      min-height: 230px;
     }
     @include respond(phone) {
       width: 80%;
