@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery-image">
+  <div class="gallery-image" :style="{'height': `${imageHeight}px`}">
     <img :src="imgSrc">
   </div>
 </template>
@@ -10,6 +10,10 @@ export default {
   props: {
     filename: {
       type: String,
+      required: true
+    },
+    imageHeight: {
+      type: Number,
       required: true
     }
   },
@@ -23,7 +27,8 @@ export default {
 
 <style scoped lang="scss">
 .gallery-image {
-  height: 280px;
+  min-height: 250px;
+  max-height: 300px;
   img {
     width: auto;
     height: 100%;

@@ -3,12 +3,13 @@
     <gallery-image v-for="file in imageFiles"
       :key="file"
       :filename="file"
+      :imageHeight="imageHeight"
     />
   </div>
 </template>
 
 <script>
-import GalleryImage from '@/components/gallery/GalleryImage.vue'
+import GalleryImage from '@/components/about/GalleryImage.vue'
 export default {
   components: {
     GalleryImage
@@ -16,6 +17,10 @@ export default {
   props: {
     imageFiles: {
       type: Array,
+      required: true
+    },
+    imageHeight: {
+      type: Number,
       required: true
     }
   }
@@ -27,6 +32,5 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 </style>

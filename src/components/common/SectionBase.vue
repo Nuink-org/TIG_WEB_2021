@@ -1,16 +1,13 @@
 <template>
-  <wrapper 
+  <wrapper
     :isFull="isWrapperFull"
-    :bgImageName="bgImageName"
     class="section-base" 
   >
-    <div class="section-base__wrapper" :class="{'section-base__wrapperRight': isRight}">
-      <div v-if="isTitleNeeded" class="section-base__header">
-        <section-header :title="title" />
-      </div>
-      <div class="section-base__content">
-        <slot name="content" />
-      </div>
+    <div v-if="isTitleNeeded" class="section-base__header">
+      <section-header :title="title" />
+    </div>
+    <div class="section-base__content">
+      <slot name="content" />
     </div>
   </wrapper>
 </template>
@@ -29,21 +26,14 @@ export default {
       type: Boolean,
       required: true
     },
-    bgImageName: {
-      type: String,
-      default: ''
-    },
     title: {
       type: String,
       default: ''
     },
-    isRight: {
-      type: Boolean,
-      default: false,
-    },
   },
   setup(props) {
     const isTitleNeeded = computed(() => props.title !== '')
+
     return { isTitleNeeded }
   }
 }
@@ -53,13 +43,7 @@ export default {
 .section-base {
   text-align: center;
   display: flex;
-  &__wrapper {
-    width: 100%
-  }
-  &__wrapperRight {
-    width: 40%;
-    margin-left: auto;
-  }
+  width: 100%;
   &__header {
     margin-bottom: $margin-section-header-bottom;
   }
