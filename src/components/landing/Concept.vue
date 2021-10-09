@@ -1,6 +1,6 @@
 <template>
   <div class="concept">
-    <div class="v-line" /> 
+    <!-- <div class="v-line" />  -->
     <div class="concept-title">
       <div v-for="(word, idx) in conceptTitle"
         :key="`word${idx}`"
