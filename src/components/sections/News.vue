@@ -13,10 +13,17 @@
             :content="news.content"
           />
         </div>
-        <div class="news-twitter" v-if="tweetLoaded">
+        <div class="news-twitter" v-if="isTweetLoaded">
           <div class="news-twitter__wrapper">
             <blockquote >
-              <a class="twitter-timeline" data-width="400" data-height="700" data-theme="dark" :href="src">Tweets by NuinkTSUKUBA</a> 
+              <a 
+                class="twitter-timeline"
+                data-width="400"
+                data-height="700"
+                data-theme="light"
+                :href="tweetSrc">
+                  Tweets by NuinkTSUKUBA
+              </a> 
             </blockquote>
           </div>
         </div>
@@ -34,14 +41,9 @@ export default {
     SectionBase,
     NewsItem
   },
-  props: {
-    src: {
-      type: String,
-      default: "https://twitter.com/NuinkTSUKUBA?ref_src=twsrc%5Etfw"
-    }
-  },
   setup() {
-    const tweetLoaded = ref(false)
+    const isTweetLoaded = ref(false)
+    const tweetSrc = 'https://twitter.com/NuinkTSUKUBA?ref_src=twsrc%5Etfw'
     onMounted(() => {
       // scriptタグを生成
       // tweet埋め込むために必要
@@ -50,7 +52,7 @@ export default {
       twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
       twitterScript.setAttribute('async', 'true')
       document.head.appendChild(twitterScript)
-      tweetLoaded.value = true
+      isTweetLoaded.value = true
     })
 
     const newsList = [
@@ -64,7 +66,7 @@ export default {
       }
     ]
 
-    return { tweetLoaded, newsList }
+    return { isTweetLoaded, newsList, tweetSrc }
   }
 }
 </script>
