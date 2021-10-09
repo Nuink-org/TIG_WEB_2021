@@ -51,8 +51,11 @@ export default {
   color: #000;
   background-color: #fff;
   text-align: center;
-  min-width: 30rem;
+  width: 30rem;
   position: relative;
+  @include respond(tablet) {
+    width: 100%;
+  }
   &::before {
     content: "";
     display: block;

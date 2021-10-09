@@ -1,41 +1,37 @@
 <template>
   <div id="home">
     <cursor />
-    <drawing />
+    <drawing
+      v-if="isDrawingOn"
+    />
     <landing />
-    <template v-if="animCompleted">
-      <concept />
+    <template v-if="isAnimCompleted">
       <about />
       <contents />
       <news />
-      <gallery />
       <page-footer />
     </template>
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
-import Concept from '@/components/sections/Concept.vue'
 import About from '@/components/sections/About.vue'
 import Contents from '@/components/sections/Contents.vue'
 import News from '@/components/sections/News.vue'
-import Gallery from '@/components/sections/Gallery.vue'
 import PageFooter from '@/components/sections/PageFooter.vue'
 export default {
   components: {
     Cursor,
     Drawing,
     Landing,
-    Concept,
     About,
     Contents,
     News,
-    Gallery,
     PageFooter
   },
   setup() {
@@ -64,9 +60,19 @@ export default {
 
     // return { transformStyle }
     const store = useStore()
-    const animCompleted = computed(() => store.state.landingAnimCompleted)
+    const isDrawingOn = computed(() => store.state.isDrawingOn)
+    const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
-    return { animCompleted }
+    onMounted(() => {
+      store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
+      store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
+      window.addEventListener('resize', () => {
+        store.commit('addResponsivenessTablet', { width: window.outerWidth })
+        store.commit('addResponsivenessPhone', { width: window.outerWidth }) 
+      })
+    })
+
+    return { isDrawingOn, isAnimCompleted }
   }
 }
 </script>
@@ -74,6 +80,7 @@ export default {
 <style scoped lang='scss'>
 #home {
   position: relative;
+  width: 100%;
   height: 100vh;
   // overflow-y: scroll;
   // -ms-overflow-style: none;

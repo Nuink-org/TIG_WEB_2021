@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "baffle": "^0.3.6",
     "core-js": "^3.6.5",
     "gsap": "^3.7.1",
     "three": "^0.127.0",

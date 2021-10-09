@@ -40,12 +40,17 @@ export default {
 
 <style scoped lang="scss">
 .content-list {
+  width: 100%;
   .content-base {
     &:nth-child(2n+1) {
       margin-right: auto;
     }
     &:nth-child(2n) {
       margin-left: auto;
+    }
+    @include respond(tablet) {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 }

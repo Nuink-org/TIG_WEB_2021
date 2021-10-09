@@ -30,6 +30,9 @@ export default {
 <style scoped lang="scss">
 .thumbnail {
   width: 30rem;
+  @include respond(tablet) {
+    width: 100%;
+  }
   position: relative;
   &::before {
     content: "";

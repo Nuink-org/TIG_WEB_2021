@@ -74,16 +74,36 @@ export default {
   &-content {
     display: flex;
     justify-content: flex-end;
+    @include respond(tablet) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
   &-list {
     width: 60%;
-    // background-color: yellow;
   }
   &-twitter {
     width: 40%;
+    @include respond(tablet) {
+      margin: 1.23rem auto 0;
+    }
     &__wrapper {
       width: 80%;
       margin: 0 auto;
+      @include respond(tablet) {
+        display: flex;
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &-list, &-twitter {
+    @include respond(tablet) {
+      width: 100%;
+      max-width: 550px;
     }
   }
 }
