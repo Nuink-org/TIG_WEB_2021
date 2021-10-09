@@ -1,14 +1,14 @@
 <template>
   <div id="home">
     <cursor />
-    <drawing />
+    <drawing
+      v-if="isDrawingOn"
+    />
     <landing />
     <template v-if="isAnimCompleted">
-      <concept />
       <about />
       <contents />
       <news />
-      <gallery />
       <page-footer />
     </template>
   </div>
@@ -20,22 +20,18 @@ import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
-import Concept from '@/components/sections/Concept.vue'
 import About from '@/components/sections/About.vue'
 import Contents from '@/components/sections/Contents.vue'
 import News from '@/components/sections/News.vue'
-import Gallery from '@/components/sections/Gallery.vue'
 import PageFooter from '@/components/sections/PageFooter.vue'
 export default {
   components: {
     Cursor,
     Drawing,
     Landing,
-    Concept,
     About,
     Contents,
     News,
-    Gallery,
     PageFooter
   },
   setup() {
@@ -64,10 +60,10 @@ export default {
 
     // return { transformStyle }
     const store = useStore()
+    const isDrawingOn = computed(() => store.state.isDrawingOn)
     const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
     onMounted(() => {
-      // window.addEventListener('resize', () => store.commit('addResponsivenessTablet', { width: window.outerWidth }))
       store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
       store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
       window.addEventListener('resize', () => {
@@ -76,7 +72,7 @@ export default {
       })
     })
 
-    return { isAnimCompleted }
+    return { isDrawingOn, isAnimCompleted }
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="concept">
+    <div class="v-line" /> 
     <div class="concept-title">
       <div v-for="(word, idx) in conceptTitle"
         :key="`word${idx}`"
@@ -187,6 +188,14 @@ export default {
   align-items: center;
   text-align: center;
   color: #fff;
+  .v-line {
+    border-left: 0.5px solid #fff;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -0.25px;
+  }
   &-title, &-subTitle, &-description {
     &__word {
       display: inline-block;

@@ -9,12 +9,12 @@
         :position="{ x: light.position[0], y: light.position[1], z: light.position[2] }"
       />
       <noisy-sphere ref="sphere"
-        :radius="3.7"
+        :radius="sphereRadius"
         :widthSegments="64"
         :heightSegments="64"
         :timeCoef="0.0006"
-        :noiseCoef="0.25"
-        :dispCoef="0.9"
+        :noiseCoef="noiseCoef"
+        :dispCoef="dispCoef"
       >
         <lambert-material />
       </noisy-sphere>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import NoisySphere from 'troisjs/src/components/noisy/NoisySphere.js'
 import { Renderer, Camera, Scene, PointLight, LambertMaterial } from 'troisjs'
 export default {
@@ -39,6 +39,11 @@ export default {
     const renderer = ref(null)
     const scene = ref(null)
     const sphere = ref(null)
+    const sphereRadius = ref(0)
+    const timeCoef = ref(0)
+    const noiseCoef = ref(0)
+    const dispCoef = ref(0)
+    let timer
 
     const lightRadius = 30
     const lightIntensity = 0.9
@@ -49,7 +54,26 @@ export default {
       { color: "#eeeeee", intensity: lightIntensity, position: [lightRadius*Math.cos(-125/180*Math.PI), lightRadius*Math.sin(-125/180*Math.PI), -12] },
     ]
 
-    return { renderer, scene, sphere, lights }
+    const linearInterpolate = (start, end, ratio) => {
+      return (1-ratio) * start + ratio * end
+    }
+
+    const interpolateTime = 3000
+    let time = 0
+    onMounted(() => {
+      timer = setInterval(() => {
+        time += 1
+        const ratio = time / interpolateTime
+        sphereRadius.value = linearInterpolate(1.2, 3.7, ratio)
+        noiseCoef.value = linearInterpolate(0.5, 0.25, ratio)
+        dispCoef.value = linearInterpolate(1.2, 0.9, ratio)
+        if (ratio >= 1) {
+          clearInterval(timer)
+        }
+      }, 1)
+    })
+
+    return { renderer, scene, sphere, sphereRadius, timeCoef, noiseCoef, dispCoef, lights }
   }
 }
 </script>

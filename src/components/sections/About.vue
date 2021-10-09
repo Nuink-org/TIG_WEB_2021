@@ -89,7 +89,7 @@ export default {
   position: relative;
   &-description__bg {
     width: 61.8%;
-    background-color: #ffffffdc;
+    background-color: #ffffff;
     height: 100%;
     position: absolute;
     top: 50%;

@@ -31,7 +31,6 @@ export default {
     const isConceptAnimDone = ref(false)
 
     const startTitleAnimation = () => {
-      console.log('start title animation')
       isConceptAnimDone.value = true
     }
 
