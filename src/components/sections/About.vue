@@ -7,7 +7,7 @@
       <div class="about-description__bg" ref="descriptionBgRef">
         <div class="about-description">
           <div class="about-title" v-if="isBgShown">
-            About
+            <img src="@/assets/images/Logo.png">
           </div>
           <div class="about-sentence" v-if="isBgShown">
             <div v-for="sentence in sentences"
@@ -108,17 +108,25 @@ export default {
   }
   &-description {
     width: 80%;
+    transform: translateY(-10%);
     opacity: 1;
   }
   &-title, &-sentence {
     color: #000;
   }
   &-title {
-    display: inline-block;
-    font-family: $font-family-standard;
-    font-size: $font-size-section-header;
-    border-bottom: 2px solid #000;
-    font-weight: bold;
+    // display: inline-block;
+    // font-family: $font-family-standard;
+    // font-size: $font-size-section-header;
+    // border-bottom: 2px solid #000;
+    // font-weight: bold;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   &-sentence {
     max-width: 600px;

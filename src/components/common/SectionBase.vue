@@ -53,7 +53,7 @@ export default {
     font-family: $font-family-jp;
   }
   & + & {
-    padding-top: $margin-section;
+    padding: $margin-section 0;
   }
 }
 </style>
