@@ -9,11 +9,19 @@
           <img src="@/assets/images/Nu-logo-02.png">
         </div>
         <div class="pagefooter-overview">
+          <div class="pagefooter-overview__orgName" v-if="isResponsivePhone">
+            筑波大学学生団体<span>&nbsp;</span><span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+          </div>
+          <div class="pagefooter-overview__website" v-if="isResponsivePhone">
+            <a href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer">
+              official website
+            </a>
+          </div>
           <div class="pagefooter-overview__header">
-            <div class="pagefooter-overview__orgName">
-              筑波大学学生団体<br v-if="isResponsive"><span v-if="!isResponsive">&nbsp;</span><span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+            <div class="pagefooter-overview__orgName" v-if="!isResponsivePhone">
+              筑波大学学生団体<span>&nbsp;</span><span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
             </div>
-            <div class="pagefooter-overview__website">
+            <div class="pagefooter-overview__website" v-if="!isResponsivePhone">
               <a href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer">
                 official website
               </a>
@@ -56,9 +64,9 @@ export default {
   },
   setup() {
     const store = useStore()
-    const isResponsive = computed(() => store.state.isResponsivePhone)
+    const isResponsivePhone = computed(() => store.state.isResponsivePhone)
 
-    return { isResponsive }
+    return { isResponsivePhone }
   }
 }
 </script>
@@ -67,7 +75,7 @@ export default {
 .pagefooter{
   background: #fff;
   min-height: 266px;
-  padding-top: 0 !important;
+  padding: 2.6rem 0 !important;
   position: relative;
   text-align: left;
   &-content, &-copyright {
@@ -81,10 +89,15 @@ export default {
     @include respond(tablet) {
       flex-direction: column;
     }
+    @include respond(phone) {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
   &-logo {
     width: 256px;
     height: 256px;
+    margin-right: auto;
     position: relative;
     img {
       width: 100%;
@@ -108,6 +121,9 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      @include respond(phone) {
+        justify-content: left;
+      }
     }
     &__orgName {
       font-size: $font-size-footer-orgName;
@@ -117,11 +133,16 @@ export default {
         letter-spacing: 1.5px;
       }
       @include respond(phone) {
-        font-size: 0.98em;
+        font-size: 1.2em;
+        text-align: left;
+        transform: translateY(-30px);
       }
     }
     &__website, &__twitter, &__instagram {
       margin-right: 0.5rem;
+      @include respond(phone) {
+        margin-right: 1.2rem;
+      }
     }
     &__website {
       a {
@@ -131,10 +152,18 @@ export default {
           font-size: 0.618em;
         }
       }
+      @include respond(phone) {
+        text-align: left;
+        transform: translateY(-20px);
+      }
     }
     &__twitter, &__instagram, &__youtube {
       width: 32px;
       height: 32px;
+      @include respond(phone) {
+        width: 25px;
+        height: 25px;
+      }
       position: relative;
       a {
         width: 100%;
