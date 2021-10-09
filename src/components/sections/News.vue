@@ -15,14 +15,8 @@
         </div>
         <div class="news-twitter" v-if="tweetLoaded">
           <div class="news-twitter__wrapper">
-            <blockquote class="twitter-tweet">
-              <p lang="ja" dir="ltr">
-                【告知】<br>
-                Nu ink.では、今秋11月5〜7日にイベント、TSUKUBA INNOVATION GALLERY (TIG) を開催する運びとなりました！<br>
-                筑波大学の先生方をはじめ、多数のプロフェッショナルの協力のもとで、トークセッションやラジオ企画、音楽を使った実験など、他にも多くの企画を予定しております。 
-                <a href="https://t.co/bUhwkVkvMJ">pic.twitter.com/bUhwkVkvMJ</a>
-              </p>
-                &mdash; Nu ink. @筑波大学 (@NuinkTSUKUBA) <a href="https://twitter.com/NuinkTSUKUBA/status/1422754169006419970?ref_src=twsrc%5Etfw">August 4, 2021</a>
+            <blockquote >
+              <a class="twitter-timeline" data-width="400" data-height="700" data-theme="dark" :href="src">Tweets by NuinkTSUKUBA</a> 
             </blockquote>
           </div>
         </div>
@@ -39,6 +33,12 @@ export default {
   components: { 
     SectionBase,
     NewsItem
+  },
+  props: {
+    src: {
+      type: String,
+      default: "https://twitter.com/NuinkTSUKUBA?ref_src=twsrc%5Etfw"
+    }
   },
   setup() {
     const tweetLoaded = ref(false)
