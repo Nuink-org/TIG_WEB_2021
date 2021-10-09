@@ -75,11 +75,29 @@ export default {
       if (!store.state.isLandingAnimCompleted) return
 
       const windowWidth = window.outerWidth
+      const translateX = store.state.isResponsiveTablet ? -50 : 0
       // vlineRef.value.style.left = `${windowWidth * 0.5}px`
-      titleTsukubaRef.value.style.left = `${windowWidth * 0.27}px`
-      titleInnovationRef.value.style.left = `${windowWidth * 0.39}px`
-      titleGalleryRef.value.style.left = `${windowWidth * 0.34}px`
-      dateRef.value.style.left = `${windowWidth * 0.5}px`
+
+      // title tsukuba
+      const titleTsukubaLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.27
+      titleTsukubaRef.value.style.left = `${titleTsukubaLeft}px`
+      titleTsukubaRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -140 : -190}px)`
+      
+      // title innovation
+      const titleInnovationLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.39
+      titleInnovationRef.value.style.left = `${titleInnovationLeft}px`
+      titleInnovationRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -60 : -110}px)`
+
+      // title gallery
+      const titleGalleryLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.34
+      titleGalleryRef.value.style.left = `${titleGalleryLeft}px`
+      titleGalleryRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? 20 : -30}px)`
+
+      // date
+      const dateLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.61
+      dateRef.value.style.left = `${dateLeft}px`
+
+      // organizer
       organizerRef.value.style.left = `${windowWidth * 0.5}px`
     }
 
@@ -133,10 +151,9 @@ export default {
     const startMoveDuration = 1.618
     const startWordMoveAnimation = () => {
       const windowWidth = window.outerWidth
-      const weight = store.state.isResponsiveTablet ? 0.8 : 1
-      const translateX = store.state.isResponsivePhone ? -50 : 0
+      const translateX = store.state.isResponsiveTablet ? -50 : 0
       
-      const titleTsukubaLeft = store.state.isResponsivePhone ? windowWidth * 0.5 : windowWidth * 0.27 * weight
+      const titleTsukubaLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.27
       gsap.to('.title-tsukuba', {
         duration: startMoveDuration,
         delay: startMoveDelay,
@@ -144,7 +161,7 @@ export default {
         translateX: `${translateX}%`,
         ease: 'expo.out'
       })
-      const titleInnovationLeft = store.state.isResponsivePhone ? windowWidth * 0.5 : windowWidth * 0.39 * weight
+      const titleInnovationLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.39
       gsap.to('.title-innovation', {
         duration: startMoveDuration,
         delay: startMoveDelay,
@@ -152,7 +169,7 @@ export default {
         translateX: `${translateX}%`,
         ease: 'expo.out'
       })
-      const titleGalleryLeft = store.state.isResponsivePhone ? windowWidth * 0.5 : windowWidth * 0.34 * weight
+      const titleGalleryLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.34
       gsap.to('.title-gallery', {
         duration: startMoveDuration,
         delay: startMoveDelay, 
@@ -181,7 +198,7 @@ export default {
         stagger: 0.1,
         ease: 'expo.out'
       })
-      const dateLeft = store.state.isResponsivePhone ? windowWidth * 0.5 : windowWidth * 0.61
+      const dateLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.61
       gsap.to('.date', {
         duration: startMoveDuration,
         opacity: 1,
