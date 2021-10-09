@@ -97,8 +97,10 @@ export default {
   &-logo {
     width: 256px;
     height: 256px;
-    margin-right: auto;
     position: relative;
+    @include respond(phone) {
+      margin-right: auto;
+    }
     img {
       width: 100%;
       height: auto;
