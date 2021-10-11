@@ -65,8 +65,8 @@ export default {
     const dateRef = ref(null)
     const organizerRef = ref(null)
     const revealTitles = [Array.from("SUKUBA"), Array.from("NNOVATION"), Array.from("ALLERY")] 
-    const titleTsukubaTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -140 : -190}px)`)
-    const titleInnovationTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -60 : -110}px)`)
+    const titleTsukubaTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -140 : -210}px)`)
+    const titleInnovationTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -60 : -120}px)`)
     const titleGalleryTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? 20 : -30}px)`)
     const store = useStore()
 
@@ -81,12 +81,12 @@ export default {
       // title tsukuba
       const titleTsukubaLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.27
       titleTsukubaRef.value.style.left = `${titleTsukubaLeft}px`
-      titleTsukubaRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -140 : -190}px)`
+      titleTsukubaRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -140 : -210}px)`
       
       // title innovation
       const titleInnovationLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.39
       titleInnovationRef.value.style.left = `${titleInnovationLeft}px`
-      titleInnovationRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -60 : -110}px)`
+      titleInnovationRef.value.style.transform = `translate(${translateX}%, ${store.state.isResponsivePhone ? -60 : -120}px)`
 
       // title gallery
       const titleGalleryLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.34
@@ -110,7 +110,7 @@ export default {
       titleTsukubaRef.value.style.left = `${titleTsukubaLeft}px`
       titleInnovationRef.value.style.left = `${titleInnovationLeft}px`
       titleGalleryRef.value.style.left = `${titleGalleryLeft}px`
-      dateRef.value.style.left = `${windowWidth * 0.61}px`
+      dateRef.value.style.left = `${windowWidth * 0.5}px`
       organizerRef.value.style.left = `${windowWidth * 0.5}px`
     }
 
