@@ -1,5 +1,6 @@
 <template>
-  <div class="cursor" ref="cursor" :style="cursorPosition" />
+  <div class="cursor cursor-inner-circle" ref="cursor" :style="cursorPosition" />
+  <!-- <canvas  class="cursor cursor-outer-circle" resize /> -->
 </template>
 
 <script>
@@ -7,17 +8,30 @@ import { onMounted, ref, computed } from 'vue'
 export default {
   setup() {
     const cursor = ref(null)
-    const pos = ref({x: screen.width / 2, y: 0})
+    const nextPos = ref({x: screen.width / 2, y: 0})
+    const lastPos = ref({x: screen.width / 2, y: 0})
+
     onMounted(() => {
       document.addEventListener('mousemove', (e) => {
-        pos.value.x = e.pageX
-        pos.value.y = e.pageY
+        nextPos.value.x = e.clientX
+        nextPos.value.y = e.clientY
       })
+      requestAnimationFrame(render)
     })
+
     const cursorPosition = computed(() => ({
-      left: `${pos.value.x}px`,
-      top: `${pos.value.y}px`
+      transform: `translate(${lastPos.value.x}px, ${lastPos.value.y}px)`
     }))
+
+    const render = () => {
+      lastPos.value.x = linearInterpolate(lastPos.value.x, nextPos.value.x, 0.1)
+      lastPos.value.y = linearInterpolate(lastPos.value.y, nextPos.value.y, 0.1)
+      requestAnimationFrame(render)
+    }
+
+    const linearInterpolate = (start, end, ratio) => {
+      return (1-ratio) * start + ratio * end
+    }
 
     return { cursor, cursorPosition }
   },
@@ -28,29 +42,24 @@ export default {
 <style scoped lang="scss">
 .cursor {
   mix-blend-mode: difference;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #fff;
-  background-color: #fff;
-  border-radius: 50%;
-  user-select: none;
+  position: fixed;
+  left: 0;
+  top: 0;
   pointer-events: none;
+}
+.cursor-inner-circle {
+  width: 50px;
+  height: 50px;
+  left: -25px;
+  top: -25px;
+  border-radius: 50%;
+  background-color: #fff;
   z-index: $layer-cursor;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-  transition-duration: 160ms;
-  transition-timing-function: ease-out;
-  animation: radiusScaling .6s infinite alternate;
+  animation: radiusScaling .46s infinite alternate;
 }
-@keyframes radiusScaling {
-  from {
-    background-color: #ddd;
-    transform: translate(-50%, -50%) scale(.618) ;
-  }
-  to {
-    background-color: #fff;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
+// .cursor-outer-circle {
+//   width: 100vw;
+//   height: 100vh;
+//   z-index: $layer-cursor-outer;
+// }
 </style>
