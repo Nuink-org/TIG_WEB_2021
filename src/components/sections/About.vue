@@ -7,7 +7,7 @@
       <div class="about-description__bg" ref="descriptionBgRef">
         <div class="about-description">
           <div class="about-title" v-if="isBgShown">
-            <img src="@/assets/images/Logo.png">
+            <img src="@/assets/images/whiteLogo.png">
           </div>
           <div class="about-sentence" v-if="isBgShown">
             <div v-for="sentence in sentences"
@@ -50,12 +50,6 @@ export default {
       isBgShown.value = true
     }
 
-    const resizeDescriptionBgSize = () => {
-      if (isBgShown.value === false) return
-      const windowWidth = window.outerWidth
-      descriptionBgRef.value.style.width = windowWidth * 0.618
-    }
-
     onMounted(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -74,7 +68,6 @@ export default {
         duration: 1.618,
         delay: 0.9,
       })
-      window.addEventListener('resize', resizeDescriptionBgSize)
     })
 
     return { isBgShown, descriptionBgRef, sentences }
@@ -88,8 +81,8 @@ export default {
   padding: 0 !important;
   position: relative;
   &-description__bg {
-    width: 61.8%;
-    background-color: #ffffff;
+    width: 100%;
+    background-color: #000000aa;
     height: 100%;
     position: absolute;
     top: 50%;
@@ -100,11 +93,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include respond(phone) {
-      left: 38.2%;
-      right: 0%;
-      transform: translate(0, -50%);
-    }
   }
   &-description {
     width: 80%;
@@ -112,7 +100,7 @@ export default {
     opacity: 1;
   }
   &-title, &-sentence {
-    color: #000;
+    color: #fff;
   }
   &-title {
     // display: inline-block;
