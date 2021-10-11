@@ -45,7 +45,7 @@ export default {
     const isAllRevealed = ref(false)
     const conceptTitle = 'New Normal'
     const conceptSubTitle = '～新たなありかたの模索～'
-    const conceptSentences = ["コロナ禍において", "不要不急と切り捨てられてきた", "エンタメや文化・芸術が", "新しい日常においてどうあるべきかを", "テクノロジーの視点から", "見つめ直し、想像し、", "体験できる場を創出する"]
+    const conceptSentences = ["コロナ禍において", "不要不急と切り捨てられてきた", "エンタメや文化・芸術が", "新しい日常においてどうあるべきかを", "テクノロジーの視点から", "見つめ直し、想像し", "体験できる場を創出する"]
     let conceptTitleBaffle, conceptSubTitleBaffle, conceptSentenceBaffle
     const duration1 = 1
     const duration2 = 0.18
