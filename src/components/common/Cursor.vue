@@ -8,8 +8,8 @@ import { onMounted, ref, computed } from 'vue'
 export default {
   setup() {
     const cursor = ref(null)
-    const nextPos = ref({x: screen.width / 2, y: 0})
-    const lastPos = ref({x: screen.width / 2, y: 0})
+    const nextPos = ref({x: screen.width / 2, y: -100})
+    const lastPos = ref({x: screen.width / 2, y: -100})
 
     onMounted(() => {
       document.addEventListener('mousemove', (e) => {
