@@ -5,6 +5,7 @@
 
 <script>
 import { onMounted, ref, computed } from 'vue'
+import { linearInterpolate } from '@/helpers/utils'
 export default {
   setup() {
     const cursor = ref(null)
@@ -27,10 +28,6 @@ export default {
       lastPos.value.x = linearInterpolate(lastPos.value.x, nextPos.value.x, 0.1)
       lastPos.value.y = linearInterpolate(lastPos.value.y, nextPos.value.y, 0.1)
       requestAnimationFrame(render)
-    }
-
-    const linearInterpolate = (start, end, ratio) => {
-      return (1-ratio) * start + ratio * end
     }
 
     return { cursor, cursorPosition }

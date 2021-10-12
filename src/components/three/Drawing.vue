@@ -26,6 +26,7 @@
 import { ref, onMounted } from 'vue'
 import NoisySphere from 'troisjs/src/components/noisy/NoisySphere.js'
 import { Renderer, Camera, Scene, PointLight, LambertMaterial } from 'troisjs'
+import { linearInterpolate } from '@/helpers/utils'
 export default {
   components: {
     NoisySphere,
@@ -53,10 +54,6 @@ export default {
       { color: "#fff000", intensity: lightIntensity, position: [lightRadius*Math.cos(125/180*Math.PI), lightRadius*Math.sin(125/180*Math.PI), -12] },
       { color: "#eeeeee", intensity: lightIntensity, position: [lightRadius*Math.cos(-125/180*Math.PI), lightRadius*Math.sin(-125/180*Math.PI), -12] },
     ]
-
-    const linearInterpolate = (start, end, ratio) => {
-      return (1-ratio) * start + ratio * end
-    }
 
     const interpolateTime = 3000
     let time = 0
