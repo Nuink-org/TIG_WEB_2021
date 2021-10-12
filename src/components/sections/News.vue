@@ -44,17 +44,6 @@ export default {
   setup() {
     const isTweetLoaded = ref(false)
     const tweetSrc = 'https://twitter.com/NuinkTSUKUBA?ref_src=twsrc%5Etfw'
-    onMounted(() => {
-      // scriptタグを生成
-      // tweet埋め込むために必要
-      // vue-tweet-embedを使いたかったが、Vueのバージョンの違いから上手くいかなかった
-      const twitterScript = document.createElement('script')
-      twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-      twitterScript.setAttribute('async', 'true')
-      document.head.appendChild(twitterScript)
-      isTweetLoaded.value = true
-    })
-
     const newsList = [
       {
         date: '2021.10.24',
@@ -65,6 +54,21 @@ export default {
         content: '企画「知識人と歩く筑波大学」を公開しました。'
       }
     ]
+
+    const setupTwitter = () => {
+      // scriptタグを生成
+      // tweet埋め込むために必要
+      // vue-tweet-embedを使いたかったが、Vueのバージョンの違いから上手くいかなかった
+      const twitterScript = document.createElement('script')
+      twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+      twitterScript.setAttribute('async', 'true')
+      document.head.appendChild(twitterScript)
+      isTweetLoaded.value = true
+    }
+
+    onMounted(() => {
+      setupTwitter()
+    })
 
     return { isTweetLoaded, newsList, tweetSrc }
   }
