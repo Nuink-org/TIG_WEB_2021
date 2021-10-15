@@ -7,6 +7,7 @@
       :titleEN="content.titleEN"
       :titleJP="content.titleJP"
       :description="content.description"
+      :pageName="content.pageName"
       :collaborators="content.collaborators"
       :isReleased="content.isReleased"
       :url="content.url"

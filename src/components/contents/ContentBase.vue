@@ -13,6 +13,7 @@
         v-if="!isResponsive && isMounted && isInfoLeft"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
         :infoHeight="thumbnailSize.height"
         :paddingRight="40"
       />
@@ -31,6 +32,7 @@
         v-if="isResponsive || (isMounted && !isInfoLeft)"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
         :infoHeight="thumbnailSize.height"
         :paddingLeft="40"
         :style="isResponsive ? {
@@ -70,6 +72,10 @@ export default {
     description: {
       type: String,
       required: true,
+    },
+    pageName: {
+      type: String,
+      required: true
     },
     collaborators: {
       type: Array,

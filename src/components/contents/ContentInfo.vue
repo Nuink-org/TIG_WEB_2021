@@ -6,6 +6,13 @@
     <div class="content-info__description">
       {{ description }}
     </div>
+    <div class="content-info__detailLink">
+      <router-link
+        :to="{ name: pageName }"
+      >
+        詳細はこちら
+      </router-link>
+    </div>
     <!-- 協力者の表示は検討中 -->
     <!-- <div v-if="collaborators.length > 0" class="content-info__collaboration">
       協力者
@@ -29,6 +36,10 @@ export default {
       required: true
     },
     description: {
+      type: String,
+      required: true
+    },
+    pageName: {
       type: String,
       required: true
     },
@@ -69,8 +80,13 @@ export default {
       font-size: 1.618em;
     }
   }
-  &__description {
+  &__description, &__detailLink {
     margin-top: 1.618rem;
+  }
+  &__detailLink {
+    a {
+      color: #fff;
+    }
   }
   &__collaboration {
     margin-top: 1.2rem;
