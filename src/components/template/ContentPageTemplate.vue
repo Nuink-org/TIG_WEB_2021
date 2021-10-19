@@ -23,7 +23,7 @@
           v-for="(description, idx) in contentDescriptions"
           :key="idx"
         >
-          {{ description }}
+          &nbsp;&nbsp;{{ description }}
         </div>
       </div>
       <slot name="body" />
@@ -85,6 +85,7 @@ export default {
     // color: #eaeaea;
     color: #000;
     background-color: #fff;
+    padding: 0 0.5rem;
     display: inline-block;
     font-size: $font-size-content-genre;
   }
@@ -92,13 +93,14 @@ export default {
     font-size: $font-size-content-overview;
   }
   &__contentDescriptions {
+    color: #cecece;
     font-size: $font-size-content-description;
     margin-top: 2.67rem;
   }
   &__contentDescription {
     line-height: 1.85rem;
     & + & {
-      margin-top: 3rem;
+      margin-top: 1.65rem;
     }
   }
 }
