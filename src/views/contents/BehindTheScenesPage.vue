@@ -1,5 +1,5 @@
 <template>
-  <div id="projection-mapping-page">
+  <div id="behind-the-scenes-page">
     <content-page-template
       :videoSrc="videoSrc"
       :contentGenre="contentGenre"
@@ -20,9 +20,9 @@ export default {
   },
   setup() {
     const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
-    const contentGenre = "Projection Mapping"
-    const contentTitle = "プロジェクションマッピング"
-    const contentDescriptions = ["プロジェクションマッピングとストリートダンスの融合、その美しさをお伝えします。映像コンテンツでは味わいにくい臨場感を大切にしながら、私たちの思いも詰め込みました。唯一無二の作品となっておりますので、ぜひお楽しみください。"]
+    const contentGenre = "Behind The Scenes"
+    const contentTitle = "新しい学校のリーダーズ feat. Nu ink."
+    const contentDescriptions = ["10/10に行われたイノフェスでのオープニングアクトの裏側を大公開！新しい学校のリーダーズの本番前の様子やライブを終えてのインタビュー、そしてNu ink.と映像制作メンバーの対談も収録されています！ぜひご覧ください"]
     
     return { videoSrc, contentGenre, contentTitle, contentDescriptions }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" :class="{'un-scrollable': !isScrollable}">
     <cursor />
     <drawing
       v-if="isDrawingOn"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 import Drawing from '@/components/three/Drawing.vue'
@@ -62,6 +62,13 @@ export default {
     const store = useStore()
     const isDrawingOn = computed(() => store.state.isDrawingOn)
     const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
+    const isScrollable = ref(false)
+
+    watch(isAnimCompleted, () => {
+      setTimeout(() => {
+        isScrollable.value = true
+      }, 100)
+    })
 
     onMounted(() => {
       store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
@@ -70,9 +77,12 @@ export default {
         store.commit('addResponsivenessTablet', { width: window.outerWidth })
         store.commit('addResponsivenessPhone', { width: window.outerWidth }) 
       })
+      if (isAnimCompleted.value) {
+        isScrollable.value = true
+      }
     })
 
-    return { isDrawingOn, isAnimCompleted }
+    return { isDrawingOn, isAnimCompleted, isScrollable }
   }
 }
 </script>
@@ -82,11 +92,13 @@ export default {
   position: relative;
   width: 100%;
   height: 100vh;
-  // overflow-y: scroll;
   // -ms-overflow-style: none;
   // scrollbar-width: none;
   // &::-webkit-scrollbar {
   //   display: none;
   // }
+}
+.un-scrollable {
+  overflow: hidden;
 }
 </style>

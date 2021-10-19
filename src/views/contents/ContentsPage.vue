@@ -27,8 +27,8 @@ export default {
 
 <style scoped lang="scss">
 #contents-page {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  padding: 7rem 0;
   .contents-page {
     &__wrapper {
       width: 80%;
@@ -38,7 +38,6 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 7rem;
     }
     &__tigLogo {
       width: 13rem;
@@ -47,8 +46,8 @@ export default {
       }
     }
     &__main {
-      background-color: red;
-      height: 100%;
+      width: 61.8%;
+      margin: 4.32rem auto 0;
     }
   }
 }

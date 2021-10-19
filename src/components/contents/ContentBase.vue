@@ -14,6 +14,7 @@
         :titleJP="titleJP"
         :description="description"
         :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingRight="40"
       />
@@ -33,6 +34,7 @@
         :titleJP="titleJP"
         :description="description"
         :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingLeft="40"
         :style="isResponsive ? {
@@ -75,7 +77,11 @@ export default {
     },
     pageName: {
       type: String,
-      required: true
+      default: ''
+    },
+    aTagLink: {
+      type: String,
+      default: ''
     },
     collaborators: {
       type: Array,

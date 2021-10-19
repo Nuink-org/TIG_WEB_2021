@@ -30,18 +30,28 @@ export default {
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)
     const contents = [
       {
+        titleEN: "Behind the Scenes",
+        titleJP: "新しい学校のリーダーズfeat. Nu ink.",
+        description: "10/10に行われたイノフェスでのオープニングアクトの裏側を大公開！新しい学校のリーダーズの本番前の様子やライブを終えてのインタビュー、そしてNu ink.と映像制作メンバーの対談も収録されています！ぜひご覧ください",
+        pageName: 'BehindTheScenes',
+        collaborators: [],
+        isReleased: false,
+        url: '',
+        imageName: '',
+      },
+      {
         titleEN: "Web Interaction",
         titleJP: "知識人と歩く筑波大学",
         description: "持っている知識によって同じ景色も違って見える。筑波大学の教員はどのような視点から日常を見ているのだろうか。様々な知識人と共に筑波大学を歩くことで、新たな日常の見方を発見しよう！あなたならではの視点も募集中！",
-        pageName: 'WebInteraction',
+        aTagLink: 'https://nuink.github.io/TisikijinWEB/',
         collaborators: [],
         isReleased: true,
-        url: 'https://mimunojun.github.io/0808web/',
-        imageName: 'tishiki_thumbnail.png',
+        url: 'https://nuink.github.io/TisikijinWEB/',
+        imageName: 'tisikizin_thumbnail.png',
       },
       {
         titleEN: "Music Experiment",
-        titleJP: "音楽実験",
+        titleJP: "人工知能と音楽　New Normalな音楽のあり方",
         description: "人工知能を用いて楽曲を制作する自動作曲技術の紹介、実演を行う。情報技術によって創作が身近なものとなっていることを体感できる内容になっている。本イベントのコンセプト「New Normal」のもと新時代の音楽のあり方を紐解く!",
         pageName: 'MusicExperiment',
         collaborators: [],
@@ -67,7 +77,7 @@ export default {
         description: "プロジェクションマッピングとストリートダンスの融合、その美しさをお伝えします。映像コンテンツでは味わいにくい臨場感を大切にしながら、私たちの思いも詰め込みました。唯一無二の作品となっておりますので、ぜひお楽しみください。",
         pageName: 'ProjectionMapping',
         collaborators: [
-          "TParty (筑波大学生により構成されるDigital Creative集団)",
+          "TParty （筑波大学生により構成されるDigital Creative集団）",
           "土佐凛斗（筑波大学ダンスサークルRealjam）"
         ],
         isReleased: false,
@@ -76,7 +86,7 @@ export default {
       },
       {
         titleEN: "Talk Session",
-        titleJP: "トークセッション",
+        titleJP: "eスポーツから考えるこれからのスポーツの在り方",
         description: "今年度のオリンピックの総括も踏まえ、これからのオリンピックやスポーツ文化がどうあるべきかについて議論する。eスポーツの専門家に加えて、プロeスポーツ選手が一同を介す事で他に見ることのできない議論に注目!",
         pageName: 'TalkSession',
         collaborators: [

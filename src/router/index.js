@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import ContentsPage from '@/views/contents/ContentsPage.vue'
-import WebInteractionPage from '@/views/contents/WebInteractionPage.vue'
+import BehindTheScenesPage from '@/views/contents/BehindTheScenesPage.vue'
 import MusicExperimentPage from '@/views/contents/MusicExperimentPage.vue'
 import RadioPage from '@/views/contents/RadioPage.vue'
 import ProjectionMappingPage from '@/views/contents/ProjectionMappingPage.vue'
@@ -19,9 +19,9 @@ const routes = [
     component: ContentsPage,
     children: [
       {
-        path: '/web_interaction',
-        name: 'WebInteraction',
-        component: WebInteractionPage
+        path: '/behind_the_scenes',
+        name: 'BehindTheScenes',
+        component: BehindTheScenesPage
       },
       {
         path: '/music_experiment',
