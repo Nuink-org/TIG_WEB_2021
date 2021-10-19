@@ -76,8 +76,8 @@ export default {
           "TParty （筑波大学生により構成されるDigital Creative集団）",
           "土佐凛斗（筑波大学ダンスサークルRealjam）"
         ],
-        isReleased: false,
-        imageName: '',
+        isReleased: true,
+        imageName: 'projection_mapping_thumbnail1.jpg',
       },
       {
         titleEN: "Talk Session",

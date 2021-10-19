@@ -23,7 +23,7 @@
           v-for="(description, idx) in contentDescriptions"
           :key="idx"
         >
-          &nbsp;&nbsp;{{ description }}
+          {{ description }}
         </div>
       </div>
       <slot name="body" />
