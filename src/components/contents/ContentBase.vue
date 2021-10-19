@@ -13,13 +13,14 @@
         v-if="!isResponsive && isMounted && isInfoLeft"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingRight="40"
       />
       <div class="content-base__thumbnail" ref="thumbnailRef">
         <template v-if="isReleased">
           <thumbnail
-            :url="url"
             :imageName="imageName"
           />
         </template>
@@ -31,6 +32,8 @@
         v-if="isResponsive || (isMounted && !isInfoLeft)"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingLeft="40"
         :style="isResponsive ? {
@@ -71,6 +74,14 @@ export default {
       type: String,
       required: true,
     },
+    pageName: {
+      type: String,
+      default: ''
+    },
+    aTagLink: {
+      type: String,
+      default: ''
+    },
     collaborators: {
       type: Array,
       default: () => []
@@ -78,10 +89,6 @@ export default {
     isReleased: {
       type: Boolean,
       default: false
-    },
-    url: {
-      type: String,
-      default: ''
     },
     imageName: {
       type: String,

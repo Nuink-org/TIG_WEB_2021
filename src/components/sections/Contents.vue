@@ -30,50 +30,60 @@ export default {
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)
     const contents = [
       {
-        titleEN: "Strolling in Tsukuba Univ. with Intellectuals",
+        titleEN: "Behind the Scenes",
+        titleJP: "新しい学校のリーダーズfeat. Nu ink.",
+        description: "10/10に行われたイノフェスでのオープニングアクトの裏側を大公開！新しい学校のリーダーズの本番前の様子やライブを終えてのインタビュー、そしてNu ink.と映像制作メンバーの対談も収録されています！ぜひご覧ください",
+        pageName: 'BehindTheScenes',
+        collaborators: [],
+        isReleased: false,
+        imageName: '',
+      },
+      {
+        titleEN: "Web Interaction",
         titleJP: "知識人と歩く筑波大学",
         description: "持っている知識によって同じ景色も違って見える。筑波大学の教員はどのような視点から日常を見ているのだろうか。様々な知識人と共に筑波大学を歩くことで、新たな日常の見方を発見しよう！あなたならではの視点も募集中！",
+        aTagLink: 'https://nuink.github.io/TisikijinWEB/',
         collaborators: [],
         isReleased: true,
-        url: 'https://mimunojun.github.io/0808web/',
-        imageName: 'tishiki_thumbnail.png',
+        imageName: 'tisikizin_thumbnail.png',
       },
       {
         titleEN: "Music Experiment",
-        titleJP: "音楽実験",
+        titleJP: "人工知能と音楽　New Normalな音楽のあり方",
         description: "人工知能を用いて楽曲を制作する自動作曲技術の紹介、実演を行う。情報技術によって創作が身近なものとなっていることを体感できる内容になっている。本イベントのコンセプト「New Normal」のもと新時代の音楽のあり方を紐解く!",
+        pageName: 'MusicExperiment',
         collaborators: [],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
         titleEN: "Radio",
-        titleJP: "ラジオ",
-        description: "今年度のオリンピックの総括も踏まえ、これからのオリンピックやスポーツ文化がどうあるべきかについて議論する。eスポーツの専門家に加えて、プロeスポーツ選手が一同を介す事で他に見ることのできない議論に注目!",
+        titleJP: "学生からの手紙",
+        description: "雙峰祭では、出張企画としてラジオ番組をお届け！パーソナリティにYouTuberのヨビノリたくみさんをお迎えし、学生の質問に答えて頂きました！「大学での効率的な勉強法は？」「講義はどこに注目して聴けばいい？」「未来の教育はどうなる？」などなど。気になる内容盛り沢山です！",
+        pageName: 'Radio',
         collaborators: [
           "ヨビノリたくみ (教育系YouTuber)"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
         titleEN: "Projection Mapping",
         titleJP: "プロジェクションマッピング",
         description: "プロジェクションマッピングとストリートダンスの融合、その美しさをお伝えします。映像コンテンツでは味わいにくい臨場感を大切にしながら、私たちの思いも詰め込みました。唯一無二の作品となっておりますので、ぜひお楽しみください。",
+        pageName: 'ProjectionMapping',
         collaborators: [
-          "TParty (筑波大学生により構成されるDigital Creative集団)",
+          "TParty （筑波大学生により構成されるDigital Creative集団）",
           "土佐凛斗（筑波大学ダンスサークルRealjam）"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
         titleEN: "Talk Session",
-        titleJP: "トークセッション",
+        titleJP: "eスポーツから考えるこれからのスポーツの在り方",
         description: "今年度のオリンピックの総括も踏まえ、これからのオリンピックやスポーツ文化がどうあるべきかについて議論する。eスポーツの専門家に加えて、プロeスポーツ選手が一同を介す事で他に見ることのできない議論に注目!",
+        pageName: 'TalkSession',
         collaborators: [
           "山口 香 (筑波大学体育系教授)",
           "松井 崇 (筑波大学体育系助教)",
@@ -81,7 +91,6 @@ export default {
           "すいのこ (プロゲーマー兼ライター)"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       }
     ]

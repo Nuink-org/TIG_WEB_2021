@@ -69,10 +69,11 @@ export default {
     const titleInnovationTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -60 : -120}px)`)
     const titleGalleryTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? 20 : -30}px)`)
     const store = useStore()
+    const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
     const resetTitlePos = () => {
       // リサイズ
-      if (!store.state.isLandingAnimCompleted) return
+      if (!isAnimCompleted.value) return
 
       const windowWidth = window.outerWidth
       const translateX = store.state.isResponsiveTablet ? -50 : 0
@@ -147,9 +148,9 @@ export default {
       })
     }
     
-    const startMoveDelay = 1
-    const startMoveDuration = 1.618
     const startWordMoveAnimation = () => {
+      const startMoveDelay = 1
+      const startMoveDuration = 1.618
       const windowWidth = window.outerWidth
       const translateX = store.state.isResponsiveTablet ? -50 : 0
       

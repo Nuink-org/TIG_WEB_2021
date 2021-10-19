@@ -6,17 +6,20 @@
     <div class="content-info__description">
       {{ description }}
     </div>
-    <!-- 協力者の表示は検討中 -->
-    <!-- <div v-if="collaborators.length > 0" class="content-info__collaboration">
-      協力者
-      <div 
-        v-for="colab in collaborators" 
-        class="content-base__collaborators"
-        :key="colab"
+    <div class="content-info__detailLink">
+      <router-link
+        v-if="isRouterLink"
+        :to="{ name: pageName }"
       >
-        {{ colab }}
-      </div>
-    </div> -->
+        詳細はこちら
+      </router-link>
+      <a
+        v-if="isAtagLink"
+        :href="aTagLink"
+      >
+        詳細はこちら
+      </a>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,14 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    pageName: {
+      type: String,
+      default: ''
+    },
+    aTagLink: {
+      type: String,
+      default: ''
     },
     infoHeight: {
       type: Number,
@@ -48,8 +59,10 @@ export default {
   setup(props) {
     const revHeight = computed(() => `${props.infoHeight}px`)
     const padding = computed(() => `0 ${props.paddingRight}px 0 ${props.paddingLeft}px`)
+    const isRouterLink = computed(() => props.pageName.length > 0)
+    const isAtagLink = computed(() => props.aTagLink.length > 0)
 
-    return { revHeight, padding }
+    return { revHeight, padding, isRouterLink, isAtagLink }
   }
 }
 </script>
@@ -69,8 +82,13 @@ export default {
       font-size: 1.618em;
     }
   }
-  &__description {
+  &__description, &__detailLink {
     margin-top: 1.618rem;
+  }
+  &__detailLink {
+    a {
+      color: #fff;
+    }
   }
   &__collaboration {
     margin-top: 1.2rem;
