@@ -21,7 +21,6 @@
       <div class="content-base__thumbnail" ref="thumbnailRef">
         <template v-if="isReleased">
           <thumbnail
-            :url="url"
             :imageName="imageName"
           />
         </template>
@@ -90,10 +89,6 @@ export default {
     isReleased: {
       type: Boolean,
       default: false
-    },
-    url: {
-      type: String,
-      default: ''
     },
     imageName: {
       type: String,

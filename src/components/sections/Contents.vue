@@ -36,7 +36,6 @@ export default {
         pageName: 'BehindTheScenes',
         collaborators: [],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
@@ -46,7 +45,6 @@ export default {
         aTagLink: 'https://nuink.github.io/TisikijinWEB/',
         collaborators: [],
         isReleased: true,
-        url: 'https://nuink.github.io/TisikijinWEB/',
         imageName: 'tisikizin_thumbnail.png',
       },
       {
@@ -56,7 +54,6 @@ export default {
         pageName: 'MusicExperiment',
         collaborators: [],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
@@ -68,7 +65,6 @@ export default {
           "ヨビノリたくみ (教育系YouTuber)"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
@@ -81,7 +77,6 @@ export default {
           "土佐凛斗（筑波大学ダンスサークルRealjam）"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       },
       {
@@ -96,7 +91,6 @@ export default {
           "すいのこ (プロゲーマー兼ライター)"
         ],
         isReleased: false,
-        url: '',
         imageName: '',
       }
     ]
