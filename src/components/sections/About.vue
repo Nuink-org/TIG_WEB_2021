@@ -88,6 +88,7 @@ export default {
   background-color: #fff;
   padding: 0 !important;
   position: relative;
+  overflow-x: hidden;
   &-description__bg {
     width: 100%;
     background-color: #000000aa;

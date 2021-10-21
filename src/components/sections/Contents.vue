@@ -35,8 +35,8 @@ export default {
         description: "10/10に行われたイノフェスでのオープニングアクトの裏側を大公開！新しい学校のリーダーズの本番前の様子やライブを終えてのインタビュー、そしてNu ink.と映像制作メンバーの対談も収録されています！ぜひご覧ください",
         pageName: 'BehindTheScenes',
         collaborators: [],
-        isReleased: false,
-        imageName: '',
+        isReleased: true,
+        imageName: 'atarashi_gakko_thumbnail.jpg',
       },
       {
         titleEN: "Web Interaction",
@@ -69,7 +69,7 @@ export default {
       },
       {
         titleEN: "Projection Mapping",
-        titleJP: "プロジェクションマッピング",
+        titleJP: "シブキ",
         description: "プロジェクションマッピングとストリートダンスの融合、その美しさをお伝えします。映像コンテンツでは味わいにくい臨場感を大切にしながら、私たちの思いも詰め込みました。唯一無二の作品となっておりますので、ぜひお楽しみください。",
         pageName: 'ProjectionMapping',
         collaborators: [
