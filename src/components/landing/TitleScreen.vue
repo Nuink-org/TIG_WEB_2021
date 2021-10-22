@@ -36,14 +36,14 @@
       </div>
     </div>
     <div class="date" ref="dateRef">
-      2021.11.6-7
+      2021.11.7
     </div>
     <div class="organizer" ref="organizerRef">
       <div class="presents">
         presented by
       </div>
       <div class="nu-ink">
-        <span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+        Nu&nbsp;ink.
       </div>
     </div>
   </div>
@@ -313,14 +313,9 @@ export default {
   left: 50%;
   transform: translate(-50%, 145px);
   .nu-ink {
+    letter-spacing: 1.1px;
     font-size: $font-size-landing-nuink;
-    .nu {
-      font-family: $font-family-nuink-nu;
-    }
-    .ink {
-      letter-spacing: 1.7px;
-      font-family: $font-family-nuink-ink;
-    }
+    font-family: $font-family-nuink;
   }
 }
 </style>

@@ -2,15 +2,16 @@
   <div class="content-base"
     :class="additionalBgClass"
     :style="isResponsive ? {
-      'padding': '4.23rem 0'
+      'padding-bottom': '4.23rem'
     } : ''"
   >
-    <div class="content-base__titleEN">
+    <div class="content-base__titleEN" v-if="!isResponsive">
       {{ titleEN }}
     </div>
     <div class="content-base__card">
       <content-info
         v-if="!isResponsive && isMounted && isInfoLeft"
+        :titleEN="titleEN"
         :titleJP="titleJP"
         :description="description"
         :pageName="pageName"
@@ -30,6 +31,7 @@
       </div>
       <content-info
         v-if="isResponsive || (isMounted && !isInfoLeft)"
+        :titleEN="titleEN"
         :titleJP="titleJP"
         :description="description"
         :pageName="pageName"
@@ -81,10 +83,6 @@ export default {
     aTagLink: {
       type: String,
       default: ''
-    },
-    collaborators: {
-      type: Array,
-      default: () => []
     },
     isReleased: {
       type: Boolean,
@@ -139,6 +137,7 @@ export default {
   position: relative;
   margin-top: 10rem;
   @include respond(tablet) {
+    margin-top: 6.18rem;
     height: 100%;
   }
   @include respond(phone) {
