@@ -1,7 +1,7 @@
 <template>
   <div class="collaborator">
     <div class="collaborator__profile" :class="isYobinori ? 'yobinori': ''">
-      <img :src="imageSrc" :style="{'width': `${imageSize}px`}">
+      <img :src="imageSrc" :style="{'width': `${imageWidth}px`}">
     </div>
     <div class="collaborator__description" :class="isTParty ? 'tparty': ''">
       <div class="collaborator__description-name">
@@ -16,6 +16,7 @@
 
 <script>
 import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
   props: {
     imageSize: {
@@ -48,9 +49,14 @@ export default {
     }
   },
   setup(props) {
+    const store = useStore()
     const imageSrc = computed(() => require(`@/assets/images/${props.imageName}`))
+    const imageWidth = computed(() => {
+      const weight = store.state.isResponsiveTablet ? 0.9 : 1
+      return props.imageSize * weight
+    })
 
-    return { imageSrc }
+    return { imageSrc, imageWidth }
   }
 }
 </script>
@@ -60,8 +66,12 @@ export default {
   padding-top: 2.67rem;
   display: flex;
   justify-content: flex-start;
+  @include respond(phone) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   &__profile {
-    width: 160px;
     img {
       background-color: #fff;
       width: 100%;
@@ -72,8 +82,14 @@ export default {
     color: #cecece;
     width: 100%;
     margin-left: 1.618rem;
+    @include respond(phone) {
+      margin: 1.618rem 0 0 0;
+    }
     &-name {
       font-size: 16px;
+      @include respond(phone) {
+        text-align: center;
+      }
       a {
         color: #cecece;
         text-decoration: none;

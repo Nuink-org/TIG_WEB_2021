@@ -23,9 +23,15 @@ export default {
 
 <style scoped lang="scss">
 .contents-overview {
+  @include respond(phone) {
+    font-size: 0.9em;
+  }
   &__sentence {
     font-size: $font-size-content-overview;
     line-height: 3rem;
+    @include respond(phone) {
+      line-height: 1.85rem;
+    }
   }
 }
 </style>
