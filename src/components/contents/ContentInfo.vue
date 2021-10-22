@@ -1,5 +1,8 @@
 <template>
   <div class="content-info" :style="{height: revHeight, padding: padding}">
+    <div class="content-info__genre" v-if="isResponsive">
+      {{ titleEN }}
+    </div>
     <div class="content-info__title">
       {{ titleJP }}
     </div>
@@ -25,8 +28,13 @@
 
 <script>
 import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
   props: {
+    titleEN: {
+      type: String,
+      required: true
+    },
     titleJP: {
       type: String,
       required: true
@@ -57,12 +65,14 @@ export default {
     }
   },
   setup(props) {
+    const store = useStore()
     const revHeight = computed(() => `${props.infoHeight}px`)
     const padding = computed(() => `0 ${props.paddingRight}px 0 ${props.paddingLeft}px`)
     const isRouterLink = computed(() => props.pageName.length > 0)
     const isAtagLink = computed(() => props.aTagLink.length > 0)
+    const isResponsive = computed(() => store.state.isResponsiveTablet)
 
-    return { revHeight, padding, isRouterLink, isAtagLink }
+    return { revHeight, padding, isRouterLink, isAtagLink, isResponsive }
   }
 }
 </script>
@@ -71,11 +81,20 @@ export default {
 .content-info {
   text-align: left;
   @include respond(tablet) {
-    padding: 0 !important;
+    padding: 0 4.85rem !important;
     height: 100% !important;
   }
+  @include respond(phone) {
+    padding: 0 1.68rem !important
+  }
+  &__genre {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 0 0.5rem;
+  }
   &__title {
-    font-size: $font-size-content-overview;
+    font-size: $font-size-content-titleJP;
     font-weight: bold;
     line-height: 2rem;
     @include respond(phone) {

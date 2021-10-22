@@ -9,7 +9,6 @@
       :description="content.description"
       :pageName="content.pageName"
       :aTagLink="content.aTagLink"
-      :collaborators="content.collaborators"
       :isReleased="content.isReleased"
       :imageName="content.imageName"
     />
