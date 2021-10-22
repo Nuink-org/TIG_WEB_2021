@@ -10,7 +10,7 @@
         </div>
         <div class="pagefooter-overview">
           <div class="pagefooter-overview__orgName" v-if="isResponsivePhone">
-            筑波大学学生団体<span>&nbsp;</span><span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+              筑波大学学生団体&nbsp;<span class="nu-ink">Nu&nbsp;ink.</span>
           </div>
           <div class="pagefooter-overview__website" v-if="isResponsivePhone">
             <a href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer">
@@ -19,7 +19,7 @@
           </div>
           <div class="pagefooter-overview__header">
             <div class="pagefooter-overview__orgName" v-if="!isResponsivePhone">
-              筑波大学学生団体<span>&nbsp;</span><span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+              筑波大学学生団体&nbsp;<span class="nu-ink">Nu&nbsp;ink.</span>
             </div>
             <div class="pagefooter-overview__website" v-if="!isResponsivePhone">
               <a href="https://nuink-tsukuba.wixsite.com/innovation-world" target="_blank" rel="noopener noreferrer">
@@ -140,10 +140,16 @@ export default {
         transform: translateY(-30px);
       }
     }
-    &__website, &__twitter, &__instagram {
+    &__website, &__twitter {
       margin-right: 0.5rem;
       @include respond(phone) {
         margin-right: 1.2rem;
+      }
+    }
+    &__instagram {
+      margin-right: 0.2rem;
+      @include respond(phone) {
+        margin-right: 0.9rem;
       }
     }
     &__website {
@@ -160,12 +166,6 @@ export default {
       }
     }
     &__twitter, &__instagram, &__youtube {
-      width: 32px;
-      height: 32px;
-      @include respond(phone) {
-        width: 25px;
-        height: 25px;
-      }
       position: relative;
       a {
         width: 100%;
@@ -181,6 +181,22 @@ export default {
         }
       }
     }
+    &__twitter, &__instagram {
+      width: 32px;
+      height: 32px;
+      @include respond(phone) {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__youtube {
+      width: 44px;
+      height: 44px;
+      @include respond(phone) {
+        width: 37px;
+        height: 37px;
+      }
+    }
   }
   &-description{
     color: #222;
@@ -194,18 +210,10 @@ export default {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    .ink {
-      font-size: 1.1em;
-      letter-spacing: 1.1px;
-    }
   }
-  .nu {
+  .nu-ink {
     font-weight: bold;
-    font-family: $font-family-nuink-nu;
-  }
-  .ink {
-    font-weight: bold;
-    font-family: $font-family-nuink-ink;
+    font-family: $font-family-nuink;
   }
 }
 </style>
