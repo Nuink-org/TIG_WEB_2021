@@ -17,11 +17,20 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 export default {
   components: {
     Cursor
-  } 
+  },
+  setup() {
+    const store = useStore()
+    onMounted(() => {
+      store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
+      store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
+    })
+  }
 }
 </script>
 
@@ -41,6 +50,9 @@ export default {
     }
     &__tigLogo {
       width: 13rem;
+      @include respond(phone) {
+        width: 8rem;
+      }
       img {
         width: 100%;
       }
@@ -48,6 +60,9 @@ export default {
     &__main {
       width: 61.8%;
       margin: 4.32rem auto 0;
+      @include respond(tablet) {
+        width: 100%;
+      }
     }
   }
 }

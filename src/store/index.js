@@ -17,10 +17,10 @@ export default createStore({
       state.isDrawingOn = true
     },
     addResponsivenessTablet(state, payload) {
-      state.isResponsiveTablet = payload.width <= 960 ? true : false // 960はタブレット閾値
+      state.isResponsiveTablet = payload.width <= 1024 ? true : false // 1024はタブレット閾値
     },
     addResponsivenessPhone(state, payload) {
-      state.isResponsivePhone = payload.width <= 560 ? true : false
+      state.isResponsivePhone = payload.width <= 768 ? true : false
     }
   },
   actions: {

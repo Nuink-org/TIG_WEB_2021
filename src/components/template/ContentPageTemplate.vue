@@ -82,7 +82,6 @@ export default {
     font-family: $font-family-jp;
   }
   &__contentGenre {
-    // color: #eaeaea;
     color: #000;
     background-color: #fff;
     padding: 0 0.5rem;
@@ -90,7 +89,7 @@ export default {
     font-size: $font-size-content-genre;
   }
   &__contentTitle {
-    font-size: $font-size-content-overview;
+    font-size: $font-size-content-page-title;
   }
   &__contentDescriptions {
     color: #cecece;

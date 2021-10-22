@@ -34,6 +34,7 @@ export default {
     padding-top: 56.25%; // aspect ratio = 16:9
   }
   img {
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;

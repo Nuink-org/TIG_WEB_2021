@@ -11,15 +11,15 @@
 }
 
 /*
-phone: ~ 559px
-tablet: 560px ~ 959px
-pc: 960px ~
+phone: ~ 767px
+tablet: 768px ~ 1024px
+pc: 1025px ~
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
-      @media (max-width: 35em) { @content }; // 560px
+      @media (max-width: 47.9375em) { @content }; // 767px
   }
   @else if $breakpoint == tablet {
-      @media (max-width: 60em) { @content }; // 960px
+      @media (max-width: 64em) { @content }; // 1024px
   }
 }
