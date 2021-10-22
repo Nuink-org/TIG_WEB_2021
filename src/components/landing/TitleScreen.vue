@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="date" ref="dateRef">
-      2021.11.6-7
+      2021.11.7
     </div>
     <div class="organizer" ref="organizerRef">
       <div class="presents">
