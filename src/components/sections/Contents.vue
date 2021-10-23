@@ -50,8 +50,8 @@ export default {
         titleJP: "人工知能と音楽 New Normalな音楽のあり方",
         description: "人工知能を用いて楽曲を制作する自動作曲技術の紹介、実演を行います。情報技術によって創作が身近なものとなっていることを体感できる内容に！本イベントのコンセプト「New Normal」のもと新時代の音楽のあり方を紐解きます!",
         pageName: 'MusicExperiment',
-        isReleased: false,
-        imageName: '',
+        isReleased: true,
+        imageName: 'music_experiment_thumbnail.jpg',
       },
       {
         titleEN: "Radio",
@@ -74,8 +74,8 @@ export default {
         titleJP: "eスポーツから考えるこれからのスポーツの在り方",
         description: "競技人口も増え、近年注目を集めるeスポーツ。今回はプロeスポーツ選手すいのこさんとeスポーツ研究者として筑波大学助教の松井先生、早稲田大学客員研究員の渡辺先生をお迎えして、eスポーツを起点にこれからのスポーツの在り方について議論します！",
         pageName: 'TalkSession',
-        isReleased: false,
-        imageName: '',
+        isReleased: true,
+        imageName: 'talksession_thumbnail.jpg',
       }
     ]
 
