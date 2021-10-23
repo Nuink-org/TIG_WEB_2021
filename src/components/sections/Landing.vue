@@ -4,12 +4,12 @@
     class="landing"
   >
     <template #content>
-      <concept 
-        v-if="!isConceptAnimDone"
-        @finishConceptAnim="startTitleAnimation" 
+      <concept
+        v-if="!isAnimCompleted && !isConceptAnimDone"
+        @finishConceptAnim="startTitleAnimation"
       />
       <title-screen
-        v-if="isConceptAnimDone"
+        v-if="isAnimCompleted || isConceptAnimDone"
         :isConceptAnimDone="isConceptAnimDone"
       />
     </template>
@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
 import SectionBase from '@/components/common/SectionBase.vue'
 import Concept from '@/components/landing/Concept.vue'
 import TitleScreen from '@/components/landing/TitleScreen.vue'
@@ -28,13 +29,15 @@ export default {
     TitleScreen
   },
   setup() {
+    const store = useStore()
     const isConceptAnimDone = ref(false)
+    const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
     const startTitleAnimation = () => {
       isConceptAnimDone.value = true
     }
 
-    return { isConceptAnimDone, startTitleAnimation }
+    return { isConceptAnimDone, isAnimCompleted, startTitleAnimation }
   }
 }
 </script>

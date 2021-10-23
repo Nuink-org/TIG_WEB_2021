@@ -1,29 +1,40 @@
 <template>
   <div class="content-info" :style="{height: revHeight, padding: padding}">
+    <div class="content-info__genre" v-if="isResponsive">
+      {{ titleEN }}
+    </div>
     <div class="content-info__title">
       {{ titleJP }}
     </div>
     <div class="content-info__description">
       {{ description }}
     </div>
-    <!-- 協力者の表示は検討中 -->
-    <!-- <div v-if="collaborators.length > 0" class="content-info__collaboration">
-      協力者
-      <div 
-        v-for="colab in collaborators" 
-        class="content-base__collaborators"
-        :key="colab"
+    <div class="content-info__detailLink">
+      <router-link
+        v-if="isRouterLink"
+        :to="{ name: pageName }"
       >
-        {{ colab }}
-      </div>
-    </div> -->
+        詳細はこちら
+      </router-link>
+      <a
+        v-if="isAtagLink"
+        :href="aTagLink"
+      >
+        詳細はこちら
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
 import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
   props: {
+    titleEN: {
+      type: String,
+      required: true
+    },
     titleJP: {
       type: String,
       required: true
@@ -31,6 +42,14 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    pageName: {
+      type: String,
+      default: ''
+    },
+    aTagLink: {
+      type: String,
+      default: ''
     },
     infoHeight: {
       type: Number,
@@ -46,10 +65,14 @@ export default {
     }
   },
   setup(props) {
+    const store = useStore()
     const revHeight = computed(() => `${props.infoHeight}px`)
     const padding = computed(() => `0 ${props.paddingRight}px 0 ${props.paddingLeft}px`)
+    const isRouterLink = computed(() => props.pageName.length > 0)
+    const isAtagLink = computed(() => props.aTagLink.length > 0)
+    const isResponsive = computed(() => store.state.isResponsiveTablet)
 
-    return { revHeight, padding }
+    return { revHeight, padding, isRouterLink, isAtagLink, isResponsive }
   }
 }
 </script>
@@ -58,19 +81,33 @@ export default {
 .content-info {
   text-align: left;
   @include respond(tablet) {
-    padding: 0 !important;
+    padding: 0 4.85rem !important;
     height: 100% !important;
   }
+  @include respond(phone) {
+    padding: 0 1.68rem !important
+  }
+  &__genre {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 0 0.5rem;
+  }
   &__title {
-    font-size: $font-size-content-overview;
+    font-size: $font-size-content-titleJP;
     font-weight: bold;
     line-height: 2rem;
     @include respond(phone) {
       font-size: 1.618em;
     }
   }
-  &__description {
+  &__description, &__detailLink {
     margin-top: 1.618rem;
+  }
+  &__detailLink {
+    a {
+      color: #fff;
+    }
   }
   &__collaboration {
     margin-top: 1.2rem;

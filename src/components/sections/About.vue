@@ -40,7 +40,7 @@ export default {
   },
   setup() {
     const isBgShown = ref(false)
-    const descriptionBgRef = ref(0)
+    const descriptionBgRef = ref(null)
     const sentences = [
       'Innovation World Festa (通称イノフェス)は筑波大学とラジオ局J-WAVEが主催する、テクノロジーと音楽のクリエイティブフェスです。',
       '例年は J-WAVE と共催していましたが今年はNu ink.単独で、イノフェスのサテライトイベントとして「Tsukuba Innovation Gallery」を開催します。'
@@ -48,6 +48,13 @@ export default {
 
     const showBg = () => {
       isBgShown.value = true
+    }
+
+    const handleResizing = () => {
+      if (!isBgShown.value) return
+
+      const windowWidth = window.innerWidth
+      descriptionBgRef.value.style.width = windowWidth
     }
 
     onMounted(() => {
@@ -68,6 +75,7 @@ export default {
         duration: 1.618,
         delay: 0.9,
       })
+      window.addEventListener('resize', handleResizing)
     })
 
     return { isBgShown, descriptionBgRef, sentences }
@@ -80,6 +88,7 @@ export default {
   background-color: #fff;
   padding: 0 !important;
   position: relative;
+  overflow-x: hidden;
   &-description__bg {
     width: 100%;
     background-color: #000000aa;

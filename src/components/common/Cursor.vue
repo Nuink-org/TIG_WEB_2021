@@ -25,8 +25,8 @@ export default {
     }))
 
     const render = () => {
-      lastPos.value.x = linearInterpolate(lastPos.value.x, nextPos.value.x, 0.1)
-      lastPos.value.y = linearInterpolate(lastPos.value.y, nextPos.value.y, 0.1)
+      lastPos.value.x = linearInterpolate(lastPos.value.x, nextPos.value.x, 0.1618)
+      lastPos.value.y = linearInterpolate(lastPos.value.y, nextPos.value.y, 0.1618)
       requestAnimationFrame(render)
     }
 

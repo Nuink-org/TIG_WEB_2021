@@ -2,24 +2,26 @@
   <div class="content-base"
     :class="additionalBgClass"
     :style="isResponsive ? {
-      'padding': '4.23rem 0'
+      'padding-bottom': '4.23rem'
     } : ''"
   >
-    <div class="content-base__titleEN">
+    <div class="content-base__titleEN" v-if="!isResponsive">
       {{ titleEN }}
     </div>
     <div class="content-base__card">
       <content-info
         v-if="!isResponsive && isMounted && isInfoLeft"
+        :titleEN="titleEN"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingRight="40"
       />
       <div class="content-base__thumbnail" ref="thumbnailRef">
         <template v-if="isReleased">
           <thumbnail
-            :url="url"
             :imageName="imageName"
           />
         </template>
@@ -29,8 +31,11 @@
       </div>
       <content-info
         v-if="isResponsive || (isMounted && !isInfoLeft)"
+        :titleEN="titleEN"
         :titleJP="titleJP"
         :description="description"
+        :pageName="pageName"
+        :aTagLink="aTagLink"
         :infoHeight="thumbnailSize.height"
         :paddingLeft="40"
         :style="isResponsive ? {
@@ -71,17 +76,17 @@ export default {
       type: String,
       required: true,
     },
-    collaborators: {
-      type: Array,
-      default: () => []
+    pageName: {
+      type: String,
+      default: ''
+    },
+    aTagLink: {
+      type: String,
+      default: ''
     },
     isReleased: {
       type: Boolean,
       default: false
-    },
-    url: {
-      type: String,
-      default: ''
     },
     imageName: {
       type: String,
@@ -132,6 +137,7 @@ export default {
   position: relative;
   margin-top: 10rem;
   @include respond(tablet) {
+    margin-top: 6.18rem;
     height: 100%;
   }
   @include respond(phone) {

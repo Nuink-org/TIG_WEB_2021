@@ -11,8 +11,7 @@ $layer-drawing: -2;
 $font-family-standard: 'Work Sans', 'Sawarabi Gothic', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
 $font-family-jp: 'Sawarabi Gothic', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
 $font-family-number: 'Arimo', 'Helvetica', 'Hiragino Sans', 'MS Pゴシック', sans-serif;
-$font-family-nuink-nu: sans-serif;
-$font-family-nuink-ink: 'ClarendonW01-Medium';
+$font-family-nuink: sans-serif;
 // font size
 $font-size-landing-title: 6em; // default - 96px
 $font-size-landing-date: 2.8em; // default - 46px
@@ -24,7 +23,11 @@ $font-size-section-header: 3.25em; // default - 52px
 $font-size-section-content: 1.06em; // default - 17px
 $font-size-upcoming-board: 2em; // default - 32px
 $font-size-content-titleEN: 7.125em; // default - 114px
-$font-size-content-overview: 1.69em; // default - 27px
+$font-size-content-page-title: 1.6em; // default - 26px
+$font-size-content-titleJP: 1.3125em; // default - 21px
+$font-size-content-overview: 1.19em; // default - 19px
+$font-size-content-description: 1.06em; // default - 17px
+$font-size-content-genre: 1em; // default - 16px
 $font-size-footer-orgName: 1.19em; // default - 19px
 $font-size-footer-description: 0.875em; // default - 14px
 $font-size-footer-copyright: 0.75em; // default - 12px

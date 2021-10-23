@@ -36,14 +36,14 @@
       </div>
     </div>
     <div class="date" ref="dateRef">
-      2021.11.6-7
+      2021.11.7
     </div>
     <div class="organizer" ref="organizerRef">
       <div class="presents">
         presented by
       </div>
       <div class="nu-ink">
-        <span class="nu">Nu</span>&nbsp;<span class="ink">ink.</span>
+        Nu&nbsp;ink.
       </div>
     </div>
   </div>
@@ -69,10 +69,11 @@ export default {
     const titleInnovationTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? -60 : -120}px)`)
     const titleGalleryTranslateY = computed(() => `translateY(${store.state.isResponsivePhone ? 20 : -30}px)`)
     const store = useStore()
+    const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
 
     const resetTitlePos = () => {
       // リサイズ
-      if (!store.state.isLandingAnimCompleted) return
+      if (!isAnimCompleted.value) return
 
       const windowWidth = window.outerWidth
       const translateX = store.state.isResponsiveTablet ? -50 : 0
@@ -147,9 +148,9 @@ export default {
       })
     }
     
-    const startMoveDelay = 1
-    const startMoveDuration = 1.618
     const startWordMoveAnimation = () => {
+      const startMoveDelay = 1
+      const startMoveDuration = 1.618
       const windowWidth = window.outerWidth
       const translateX = store.state.isResponsiveTablet ? -50 : 0
       
@@ -312,14 +313,9 @@ export default {
   left: 50%;
   transform: translate(-50%, 145px);
   .nu-ink {
+    letter-spacing: 1.1px;
     font-size: $font-size-landing-nuink;
-    .nu {
-      font-family: $font-family-nuink-nu;
-    }
-    .ink {
-      letter-spacing: 1.7px;
-      font-family: $font-family-nuink-ink;
-    }
+    font-family: $font-family-nuink;
   }
 }
 </style>

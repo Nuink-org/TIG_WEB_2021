@@ -7,9 +7,9 @@
       :titleEN="content.titleEN"
       :titleJP="content.titleJP"
       :description="content.description"
-      :collaborators="content.collaborators"
+      :pageName="content.pageName"
+      :aTagLink="content.aTagLink"
       :isReleased="content.isReleased"
-      :url="content.url"
       :imageName="content.imageName"
     />
   </div>
