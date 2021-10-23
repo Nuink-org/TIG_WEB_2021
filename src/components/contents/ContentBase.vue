@@ -136,6 +136,7 @@ export default {
   background-color: #000;
   position: relative;
   margin-top: 10rem;
+  opacity: 1;
   @include respond(tablet) {
     margin-top: 6.18rem;
     height: 100%;

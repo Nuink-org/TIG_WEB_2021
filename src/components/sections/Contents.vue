@@ -1,10 +1,12 @@
 <template>
   <section-base
     :isWrapperFull="isResponsivePhone || false"
-    title="contents"
     class="contents"
   >
     <template #content>
+      <div class="contents-title">
+        CONTENTS
+      </div>
       <contents-overview />
       <content-list
         :contents="contents"
@@ -14,11 +16,15 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import SectionBase from '@/components/common/SectionBase.vue'
 import ContentsOverview from '@/components/contents/ContentsOverview.vue'
 import ContentList from '@/components/contents/ContentList.vue'
+import { gsap, Power2 } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
+gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 export default {
   components: {
     SectionBase,
@@ -79,12 +85,60 @@ export default {
       }
     ]
 
+    const setAnimation = () => {
+      gsap.from('.contents-title', {
+        scrollTrigger: {
+          trigger: '.contents',
+          start: 'top center'
+        },
+        ease: 'ease-in',
+        duration: 1.68,
+        opacity: 0,
+      })
+      gsap.from(CSSRulePlugin.getRule('.contents-title::before'), {
+        scrollTrigger: {
+          trigger: '.contents',
+          start: 'top center'
+        },
+        ease: Power2.easeOut,
+        opacity: 0,
+        transform: 'translate(-100%, 0%)',
+        duration: 1.618,
+        delay: 0.6
+      })
+      gsap.from('.contents-overview', {
+        scrollTrigger: {
+          trigger: '.contents',
+          start: 'top center'
+        },
+        ease: 'ease-in',
+        duration: 1.68,
+        opacity: 0,
+        delay: 1
+      })
+      for (let i = 0; i < contents.length; i++) {
+        gsap.from(`.content-base__${i}`, {
+            scrollTrigger: {
+            trigger: `.content-base__${i}`,
+            start: 'top center'
+          },
+          ease: 'ease-in',
+          duration: 1.68,
+          opacity: 0,
+        })
+      }
+    }
+
+    onMounted(() => {
+      setAnimation()
+    })
+
     return { isResponsivePhone, contents}
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .contents {
   background: linear-gradient(217deg, #019fe8ff, #019fe822 61.8%),
               linear-gradient(127deg, #fff000ff, #fff00022 61.8%),
@@ -92,6 +146,9 @@ export default {
               linear-gradient(240deg, #eeeeeeff, #eeeeee22 61.8%);
   background-color: #fff;
   overflow: hidden;
+  &-title {
+    @include section-title;
+  }
 }
 .content-list {
   margin-top: 4rem;
