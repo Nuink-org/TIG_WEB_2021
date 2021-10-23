@@ -142,25 +142,7 @@ export default {
 <style lang='scss'>
 .news {
   &-title {
-    text-align: center;
-    opacity: 1;
-    display: inline-block;
-    font-family: $font-family-standard;
-    font-size: $font-size-section-header;
-    font-weight: bold;
-    margin-bottom: $margin-section-header-bottom;
-    position: relative;
-    &::before {
-      content: "";
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      transform: translate(0%, 0%);
-      border-bottom: 2px solid #fff;
-    }
+    @include section-title;
   }
   &-content {
     display: flex;
