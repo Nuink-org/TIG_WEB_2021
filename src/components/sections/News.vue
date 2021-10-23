@@ -58,7 +58,7 @@ export default {
     const newsList = [
       {
         date: '2021.10.24',
-        content: 'Tsukuba Innovation Galleryのwebサイトを公開しました。'
+        content: 'TSUKUBA INNOVATION GALLERYのwebサイトを公開しました。'
       },
       {
         date: '2021.10.24',
