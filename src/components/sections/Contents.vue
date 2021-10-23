@@ -41,7 +41,7 @@ export default {
         titleEN: "Web Interaction",
         titleJP: "知識人と歩く筑波大学",
         description: "筑波大学の先生方は日常の景色を見て何を考えているのでしょうか？この企画では、実際に先生方から集めたモノの見方を、写真の中から探し出すことができます。筑波大学の貴重な昔の写真も見ることができるのでお楽しみに！",
-        aTagLink: 'https://nuink.github.io/TisikijinWEB/',
+        aTagLink: 'https://nuink.github.io/tsukuba_intellectual/',
         isReleased: true,
         imageName: 'tisikizin_thumbnail.png',
       },
