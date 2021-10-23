@@ -1,6 +1,8 @@
 <template>
   <div id="home" :class="{'un-scrollable': !isScrollable}">
-    <cursor />
+    <cursor 
+      v-if="!isResponsive"
+    />
     <drawing
       v-if="isDrawingOn"
     />
@@ -63,6 +65,7 @@ export default {
     const isDrawingOn = computed(() => store.state.isDrawingOn)
     const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
     const isScrollable = ref(false)
+    const isResponsive = computed(() => store.state.isResponsiveTablet)
 
     watch(isAnimCompleted, () => {
       setTimeout(() => {
@@ -82,7 +85,7 @@ export default {
       }
     })
 
-    return { isDrawingOn, isAnimCompleted, isScrollable }
+    return { isDrawingOn, isAnimCompleted, isScrollable, isResponsive }
   }
 }
 </script>

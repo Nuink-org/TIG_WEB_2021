@@ -1,6 +1,8 @@
 <template>
   <div id="contents-page">
-    <cursor />
+    <cursor 
+      v-if="!isResponsive"
+    />
     <div class="contents-page__wrapper">
       <div class="contents-page__header">
         <div class="contents-page__tigLogo">
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 export default {
@@ -26,10 +28,14 @@ export default {
   },
   setup() {
     const store = useStore()
+    const isResponsive = computed(() => store.state.isResponsiveTablet)
+
     onMounted(() => {
       store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
       store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
     })
+
+    return { isResponsive }
   }
 }
 </script>

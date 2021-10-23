@@ -17,6 +17,7 @@ body{
   background-color: #000;  /* 背景の基本カラーは黒 */
   @include respond(tablet) {
     font-size: 87.5%; // 1rem == 14px
+    cursor: default;
   }
   @include respond(phone) {
     font-size: 75%; // 1rem == 12px
