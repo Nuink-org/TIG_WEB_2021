@@ -58,8 +58,8 @@ export default {
         titleJP: "学生からの手紙",
         description: "雙峰祭では、出張企画としてラジオ番組をお届け！パーソナリティにYouTuberのヨビノリたくみさんをお迎えし、学生の質問に答えて頂きました！「大学での効率的な勉強法は？」「講義はどこに注目して聴けばいい？」「未来の教育はどうなる？」などなど。気になる内容盛り沢山です！",
         pageName: 'Radio',
-        isReleased: false,
-        imageName: '',
+        isReleased: true,
+        imageName: 'radio_thumbnail.jpg',
       },
       {
         titleEN: "Projection Mapping",
