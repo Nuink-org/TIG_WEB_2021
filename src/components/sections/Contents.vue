@@ -120,7 +120,7 @@ export default {
         gsap.from(`.content-base__${i}`, {
             scrollTrigger: {
             trigger: `.content-base__${i}`,
-            start: 'top center'
+            start: 'bottom top'
           },
           ease: 'ease-in',
           duration: 1.68,
