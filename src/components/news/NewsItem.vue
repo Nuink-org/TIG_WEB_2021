@@ -28,14 +28,15 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .news-item {
   font-size: $font-size-section-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #aaa;
   line-height: 2rem;
+  opacity: 1;
   @include respond(phone) {
     line-height: 1.4rem;
     font-size: 0.95em;
