@@ -57,11 +57,11 @@ export default {
       descriptionBgRef.value.style.width = windowWidth
     }
 
-    onMounted(() => {
+    const setAnimation = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.about-description__bg',
-          start: 'top'
+          start: 'top center'
         },
       })
       tl.from('.about-description__bg', {
@@ -75,6 +75,10 @@ export default {
         duration: 1.618,
         delay: 0.9,
       })
+    }
+
+    onMounted(() => {
+      setAnimation()
       window.addEventListener('resize', handleResizing)
     })
 
