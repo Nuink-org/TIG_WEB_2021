@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery" v-if="isMounted">
+  <div class="gallery">
     <div class="gallery__first">
       <gallery-image-list :imageFiles="imageFiles.slice(0, 5)" :imageHeight="imageHeight"/>
       <gallery-image-list :imageFiles="imageFiles.slice(0, 5)" :imageHeight="imageHeight"/>
@@ -24,17 +24,19 @@ export default {
   },
   setup() {
     const imageHeight = ref(0)
-    const isMounted = ref(false)
     const imageFiles = Array.from({length: 15}, (v, i) => `gallery${i+1}.jpeg`)
 
     onMounted(() => {
       const windowHeight = window.outerHeight
       imageHeight.value = windowHeight / 3
-      
-      isMounted.value = true
+
+      // lazy-load
+      document.querySelectorAll('.lazy-load').forEach(el => {
+        el.src = el.getAttribute('data-src')
+      })
     })
 
-    return { imageHeight, imageFiles, isMounted }
+    return { imageHeight, imageFiles }
   }
 }
 </script>
