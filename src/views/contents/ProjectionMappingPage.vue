@@ -24,7 +24,7 @@ export default {
   setup() {
     const videoSrc = ""
     const contentGenre = "Projection Mapping"
-    const contentTitle = "プロジェクションマッピング"
+    const contentTitle = "筑波大生による映像作品「シブキ」"
     const contentDescriptions = [
       "「ダンスとプロジェクションマッピングの融合」をコンセプトに、筑波大学クリエイティブ集団 TParty と共に映像作品を作り上げました。繊細なプロジェクションマッピングやオーディオビジュアルは必見です。", 
       "企画はNu ink.・制作はTPartyが担い、企画段階を含めると制作に5か月ほど要しました。新型コロナウイルス感染拡大の影響により、撮影延期なども余儀なくされましたが、無事に完成しました。", 
