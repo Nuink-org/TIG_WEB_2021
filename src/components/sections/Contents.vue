@@ -34,7 +34,6 @@ export default {
   setup() {
     const store = useStore()
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)
-    const isResponsive = computed(() => store.state.isResponsiveTablet)
     const contents = [
       {
         titleEN: "Behind the Scenes",
@@ -118,12 +117,11 @@ export default {
         opacity: 0,
         delay: 1
       })
-      const scrollStart = isResponsive.value ? 'top center' : 'bottom top'
       for (let i = 0; i < contents.length; i++) {
         gsap.from(`.content-base__${i}`, {
             scrollTrigger: {
             trigger: `.content-base__${i}`,
-            start: scrollStart
+            start: 'top center'
           },
           ease: 'ease-in',
           duration: 1.68,
