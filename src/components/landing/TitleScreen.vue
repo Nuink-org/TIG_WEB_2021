@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="date" ref="dateRef">
-      2021.11.7
+      2021.11.7 - Sun
     </div>
     <div class="organizer" ref="organizerRef">
       <div class="presents">
@@ -55,7 +55,6 @@ import { useStore } from 'vuex'
 import gsap from 'gsap'
 export default {
   setup() {
-    const vlineRef = ref(null)
     const titleTsukubaRef = ref(null)
     const titleInnovationRef = ref(null)
     const titleGalleryRef = ref(null)
@@ -77,7 +76,6 @@ export default {
 
       const windowWidth = window.outerWidth
       const translateX = store.state.isResponsiveTablet ? -50 : 0
-      // vlineRef.value.style.left = `${windowWidth * 0.5}px`
 
       // title tsukuba
       const titleTsukubaLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.27
@@ -107,7 +105,6 @@ export default {
       const titleTsukubaLeft = windowWidth * 0.5 - tsukubaInitialRef.value.offsetWidth * 0.5
       const titleInnovationLeft = windowWidth * 0.5 - innovationInitialRef.value.offsetWidth * 0.5
       const titleGalleryLeft = windowWidth * 0.5 - galleryInitialRef.value.offsetWidth * 0.5
-      // vlineRef.value.style.left = `${windowWidth * 0.5}px`
       titleTsukubaRef.value.style.left = `${titleTsukubaLeft}px`
       titleInnovationRef.value.style.left = `${titleInnovationLeft}px`
       titleGalleryRef.value.style.left = `${titleGalleryLeft}px`
@@ -218,14 +215,46 @@ export default {
       })
     }
 
+    // 一度アニメーションをしている場合はスキップ
+    const skipAnimation = () => {
+      // 不透明にする（文字の出現）
+      titleTsukubaRef.value.style.opacity = '1'
+      document.querySelectorAll('.title-hidden__tsukuba').forEach(el => { el.style.opacity = '1' })
+      titleInnovationRef.value.style.opacity = '1'
+      document.querySelectorAll('.title-hidden__innovation').forEach(el => { el.style.opacity = '1' })
+      titleGalleryRef.value.style.opacity = '1'
+      document.querySelectorAll('.title-hidden__gallery').forEach(el => { el.style.opacity = '1' })
+      dateRef.value.style.opacity = '1'
+      organizerRef.value.style.opacity = '1'
+      
+      // 位置移動
+      const windowWidth = window.outerWidth
+      const translateX = store.state.isResponsiveTablet ? -50 : 0
+      const titleTsukubaLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.27
+      titleTsukubaRef.value.style.left = `${titleTsukubaLeft}px`
+      titleTsukubaRef.value.style.translateX = `${translateX}%`
+      const titleInnovationLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.39
+      titleInnovationRef.value.style.left = `${titleInnovationLeft}px`
+      titleInnovationRef.value.style.translateX = `${translateX}%`
+      const titleGalleryLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.34
+      titleGalleryRef.value.style.left = `${titleGalleryLeft}px`
+      titleGalleryRef.value.style.translateX = `${translateX}%`
+      const dateLeft = store.state.isResponsiveTablet ? windowWidth * 0.5 : windowWidth * 0.61
+      dateRef.value.style.left = `${dateLeft}px`
+      organizerRef.value.style.transform = "translate(-50%, 200px)"
+    }
+
     onMounted(() => {
       initPos()
-      startAnimation()
+      if (isAnimCompleted.value) {
+        skipAnimation()
+      } else {
+        startAnimation()
+      }
       window.addEventListener('resize', resetTitlePos)
     })
 
     return {
-      vlineRef, 
       titleTsukubaRef, 
       titleInnovationRef, 
       titleGalleryRef, 
@@ -250,14 +279,6 @@ export default {
   height: 100vh;
   font-family: $font-family-standard;
   overflow: hidden;
-}
-.v-line {
-  border-left: 0.5px solid #fff;
-  height: 100vh;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  margin-left: -0.25px;
 }
 .title,
 .date,
@@ -302,7 +323,7 @@ export default {
   left: 50%;
   transform: translate(-50%, 115px);
   @include respond(phone) {
-    font-size: 2.1em;
+    font-size: 1.9em;
   }
 }
 .organizer { 
@@ -316,6 +337,9 @@ export default {
     letter-spacing: 1.1px;
     font-size: $font-size-landing-nuink;
     font-family: $font-family-nuink;
+  }
+  @include respond(phone) {
+    font-size: 13px;
   }
 }
 </style>
