@@ -22,7 +22,7 @@ export default {
     CollaborationList
   },
   setup() {
-    const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
+    const videoSrc = ""
     const contentGenre = "Projection Mapping"
     const contentTitle = "プロジェクションマッピング"
     const contentDescriptions = [

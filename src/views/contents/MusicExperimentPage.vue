@@ -19,7 +19,7 @@ export default {
     ContentPageTemplate
   },
   setup() {
-    const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
+    const videoSrc = ""
     const contentGenre = "Music Experiment"
     const contentTitle = "人工知能と音楽 New Normalな音楽のあり方"
     const contentDescriptions = [

@@ -22,7 +22,7 @@ export default {
     CollaborationList
   },
   setup() {
-    const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
+    const videoSrc = ""
     const contentGenre = "Radio"
     const contentTitle = "学生からの手紙"
     const contentDescriptions = [
