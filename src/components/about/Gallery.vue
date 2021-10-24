@@ -59,9 +59,15 @@ export default {
     .gallery-image__list {
       &:first-child {
         animation: left-to-right-1 50s linear -25s infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
       &:last-child {
         animation: left-to-right-2 50s linear infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
     }
   }
@@ -69,9 +75,15 @@ export default {
     .gallery-image__list {
       &:first-child {
         animation: right-to-left-1 54s linear -27s infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
       &:last-child {
         animation: right-to-left-2 54s linear infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
     }
   }
@@ -79,9 +91,15 @@ export default {
     .gallery-image__list {
       &:first-child {
         animation: left-to-right-1 46s linear -23s infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
       &:last-child {
         animation: left-to-right-2 46s linear infinite;
+        @include respond(phone) {
+          animation: none;
+        }
       }
     }
   }
