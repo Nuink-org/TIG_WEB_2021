@@ -34,6 +34,7 @@ export default {
   setup() {
     const store = useStore()
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)
+    const isResponsive = computed(() => store.state.isResponsiveTablet)
     const contents = [
       {
         titleEN: "Behind the Scenes",
@@ -86,6 +87,7 @@ export default {
     ]
 
     const setAnimation = () => {
+      console.log('set animation')
       gsap.from('.contents-title', {
         scrollTrigger: {
           trigger: '.contents',
@@ -103,8 +105,8 @@ export default {
         ease: Power2.easeOut,
         opacity: 0,
         transform: 'translate(-100%, 0%)',
-        duration: 1.618,
-        delay: 0.6
+        duration: 1.1,
+        delay: 0.38
       })
       gsap.from('.contents-overview', {
         scrollTrigger: {
@@ -116,11 +118,12 @@ export default {
         opacity: 0,
         delay: 1
       })
+      const scrollStart = isResponsive.value ? 'top center' : 'bottom top'
       for (let i = 0; i < contents.length; i++) {
         gsap.from(`.content-base__${i}`, {
             scrollTrigger: {
             trigger: `.content-base__${i}`,
-            start: 'bottom top'
+            start: scrollStart
           },
           ease: 'ease-in',
           duration: 1.68,
@@ -130,7 +133,7 @@ export default {
     }
 
     onMounted(() => {
-      setAnimation()
+      setTimeout(setAnimation, 1000)
     })
 
     return { isResponsivePhone, contents}
