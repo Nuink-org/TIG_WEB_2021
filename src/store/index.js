@@ -7,6 +7,7 @@ export default createStore({
       isDrawingOn: false,
       isResponsiveTablet: false,
       isResponsivePhone: false,
+      isScrollable: false,
       scrollTopPos: 0,
       timeDiff: 0,
     }
@@ -23,6 +24,9 @@ export default createStore({
     },
     addResponsivenessPhone(state, payload) {
       state.isResponsivePhone = payload.width <= 768 ? true : false
+    },
+    activateScrolling(state) {
+      state.isScrollable = true
     },
     setScrollTopPos(state, payload) {
       state.scrollTopPos = payload.scrollTopPos

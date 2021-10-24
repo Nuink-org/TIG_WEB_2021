@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery" v-if="isMounted">
+  <div class="gallery">
     <div class="gallery__first">
       <gallery-image-list :imageFiles="imageFiles.slice(0, imageCount)" :imageHeight="imageHeight"/>
       <gallery-image-list :imageFiles="imageFiles.slice(0, imageCount)" :imageHeight="imageHeight"/>
@@ -16,17 +16,19 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useStore } from 'vuex'
 import GalleryImageList from '@/components/about/GalleryImageList.vue'
 export default {
   components: {
     GalleryImageList
   },
   setup() {
+    const store = useStore()
     const imageHeight = ref(0)
     const imageFiles = Array.from({length: 15}, (v, i) => `gallery${i+1}.jpeg`)
     const imageCount = ref(0)
-    const isMounted = ref(false)
+    const isScrollable = computed(() => store.state.isScrollable)
 
     onMounted(() => {
       const windowHeight = window.outerHeight
@@ -35,10 +37,15 @@ export default {
       const windowSize = window.innerWidth
       imageCount.value = windowSize <= 767 ? 3 : 5 // スマホの場合は読み込む画像の数を少なくする
 
-      isMounted.value = true
+      setTimeout(() => {
+        document.querySelectorAll('.lazy-load').forEach(el => {
+          el.src = el.getAttribute('data-src')
+        })
+        store.commit('activateScrolling')
+      }, 1000)
     })
 
-    return { imageHeight, imageFiles, imageCount, isMounted }
+    return { imageHeight, imageFiles, imageCount, isScrollable }
   }
 }
 </script>
