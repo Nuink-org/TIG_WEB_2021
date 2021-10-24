@@ -73,7 +73,15 @@ export default {
       }, 100)
     })
 
+    const updateTimer = (() => {
+      const curTime = new Date()
+      const targetTime = new Date('2021-11-07T13:00:00')
+      const diff = targetTime.getTime() - curTime.getTime()
+      store.commit('setTimeDiff', { diff: diff })
+    })
+
     onMounted(() => {
+      setInterval(updateTimer, 1000)
       store.commit('addResponsivenessTablet', { width: window.outerWidth }) // init commit
       store.commit('addResponsivenessPhone', { width: window.outerWidth }) // init commit
       window.addEventListener('resize', () => {
