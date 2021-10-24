@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-image" :style="{'height': `${imageHeight}px`}">
-    <img class="lazy-load" :data-src="imgSrc">
+    <img class="lazy-load" :src="imgSrc">
   </div>
 </template>
 
