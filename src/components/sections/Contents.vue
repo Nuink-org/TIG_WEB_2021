@@ -37,6 +37,7 @@ export default {
   setup() {
     const store = useStore()
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)
+    const isLivePublished = computed(() => store.state.timeDiff <= 0)
     const contents = [
       {
         titleEN: "Behind the Scenes",
@@ -113,6 +114,18 @@ export default {
         opacity: 0,
         delay: 1
       })
+      if (isLivePublished.value) {
+        gsap.from('.youtube-liveBoard', {
+          scrollTrigger: {
+            trigger: '.contents',
+            start: 'top center'
+          },
+          ease: 'ease-in',
+          duration: 1.68,
+          opacity: 0,
+          delay: 1
+        })
+      }
       for (let i = 0; i < contents.length; i++) {
         gsap.from(`.content-base__${i}`, {
             scrollTrigger: {

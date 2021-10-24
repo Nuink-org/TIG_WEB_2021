@@ -46,6 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .youtube-liveBoard {
+  opacity: 1;
   color: #000;
   background-color: #fffe;
   width: 100%;
