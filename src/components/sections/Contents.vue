@@ -86,7 +86,6 @@ export default {
     ]
 
     const setAnimation = () => {
-      console.log('set animation')
       gsap.from('.contents-title', {
         scrollTrigger: {
           trigger: '.contents',

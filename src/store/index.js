@@ -6,7 +6,8 @@ export default createStore({
       isLandingAnimCompleted: false,
       isDrawingOn: false,
       isResponsiveTablet: false,
-      isResponsivePhone: false
+      isResponsivePhone: false,
+      scrollTopPos: 0
     }
   },
   mutations: {
@@ -21,6 +22,9 @@ export default createStore({
     },
     addResponsivenessPhone(state, payload) {
       state.isResponsivePhone = payload.width <= 768 ? true : false
+    },
+    setScrollTopPos(state, payload) {
+      state.scrollTopPos = payload.scrollTopPos
     }
   },
   actions: {

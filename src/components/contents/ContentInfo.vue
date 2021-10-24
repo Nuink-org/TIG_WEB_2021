@@ -13,6 +13,7 @@
       <router-link
         v-if="isRouterLink"
         :to="{ name: pageName }"
+        @click.prevent="saveScrollPosition(); scrollToTop();"
       >
         詳細はこちら
       </router-link>
@@ -72,7 +73,17 @@ export default {
     const isAtagLink = computed(() => props.aTagLink.length > 0)
     const isResponsive = computed(() => store.state.isResponsiveTablet)
 
-    return { revHeight, padding, isRouterLink, isAtagLink, isResponsive }
+    const saveScrollPosition = () => {
+      store.commit('setScrollTopPos', {
+        scrollTopPos: window.scrollY
+      })
+    }
+
+    const scrollToTop = () => {
+      window.scrollTo(0, 0)
+    }
+
+    return { revHeight, padding, isRouterLink, isAtagLink, isResponsive, saveScrollPosition, scrollToTop }
   }
 }
 </script>

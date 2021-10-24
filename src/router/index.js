@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import store from '@/store'
 import ContentsPage from '@/views/contents/ContentsPage.vue'
 import BehindTheScenesPage from '@/views/contents/BehindTheScenesPage.vue'
 import MusicExperimentPage from '@/views/contents/MusicExperimentPage.vue'
@@ -11,7 +12,13 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      scrollPos: {
+        top: 0,
+        left: 0
+      }
+    }
   },
   {
     path: '/contents',
@@ -54,7 +61,16 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    return savedPosition || to.meta.scrollPos || { top: 0, left: 0 }
+  }
+})
+
+router.beforeEach((to, from, next) => {
+  // Homeページに戻る際には、以前のポジションを読み込み、そのポジションに戻るようにする。
+  from.meta.scrollPos && (from.meta.scrollPos.top = store.state.scrollTopPos)
+  return next()
 })
 
 export default router
