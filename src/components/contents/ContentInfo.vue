@@ -109,7 +109,7 @@ export default {
     font-weight: bold;
     line-height: 2rem;
     @include respond(phone) {
-      font-size: 1.618em;
+      font-size: 1.4375em;
     }
   }
   &__description, &__detailLink {
