@@ -42,8 +42,9 @@ export default {
     const isBgShown = ref(false)
     const descriptionBgRef = ref(null)
     const sentences = [
-      'Innovation World Festa (通称イノフェス)は筑波大学とラジオ局J-WAVEが主催する、テクノロジーと音楽のクリエイティブフェスです。',
-      '例年は J-WAVE と共催していましたが今年はNu ink.単独で、イノフェスのサテライトイベントとして「Tsukuba Innovation Gallery」を開催します。'
+      '筑波大学とラジオ局J-WAVEが主催する、テクノロジーと音楽の祭典「INNOVATION WORLD FESTA (イノフェス)」。例年Nu ink.はイノフェスで企画・運営に携わっています。',
+      '今年はNu ink.初の試みとして、イノフェスのサテライトイベントを開催します！その名も「TSUKUBA INNOVATION GALLERY (TIG)」 。GALLERYには「部屋と部屋を結ぶ廊下の機能を兼ねる部屋」という意味があり、「イベントを通じて人や学問を結びたい」という思いが込められています。',
+      '筑波大学ならではの企画やイノフェスの裏側まで、分野も団体も横断したコンテンツをお届けします。ぜひご覧ください！！'
     ]
 
     const showBg = () => {
@@ -105,7 +106,6 @@ export default {
   }
   &-description {
     width: 80%;
-    transform: translateY(-10%);
     opacity: 1;
   }
   &-title, &-sentence {
@@ -130,6 +130,9 @@ export default {
     margin: 3rem auto 0;
     text-align: center;
     line-height: $sentence-height;
+    @include respond(phone) {
+      line-height: 1.5rem;
+    }
   }
   &-paragraph + &-paragraph {
     margin-top: $margin-paragraph;
