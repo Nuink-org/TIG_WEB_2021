@@ -2,6 +2,7 @@
   <div class="content-pageTemplate">
     <div class="content-pageTemplate__top" ref="templateTop">
       <iframe
+        v-if="isVideoPublished"
         :style="{height: `${iframeHeight}px`}"
         :src="videoSrc"
         title="YouTube video player"
@@ -9,6 +10,7 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
       />
+      <upcoming-board v-else />
     </div>
     <div class="content-pageTemplate__body">
       <div class="content-pageTemplate__contentGenre">
@@ -32,8 +34,12 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import UpcomingBoard from '@/components/contents/UpcomingBoard.vue'
 export default {
+  components: {
+    UpcomingBoard
+  },
   props: {
     videoSrc: {
       type: String,
@@ -52,16 +58,17 @@ export default {
       default: () => []
     }
   },
-  setup() {
+  setup(props) {
     const templateTop = ref(null)
     const iframeHeight = ref(0)
+    const isVideoPublished = computed(() => props.videoSrc.length > 0)
 
     onMounted(() => {
       const topWidth = templateTop.value.offsetWidth
       iframeHeight.value = topWidth * 9 / 16  
     })
 
-    return { templateTop, iframeHeight }
+    return { templateTop, iframeHeight, isVideoPublished }
   }
 }
 </script>

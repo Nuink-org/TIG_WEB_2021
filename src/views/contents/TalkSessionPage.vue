@@ -22,7 +22,7 @@ export default {
     CollaborationList
   },
   setup() {
-    const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
+    const videoSrc = ""
     const contentGenre = "Talk Session"
     const contentTitle = "eスポーツから考えるこれからのスポーツの在り方"
     const contentDescriptions = ["今年度のオリンピックの総括も踏まえ、これからのオリンピックやスポーツ文化がどうあるべきかについて議論する。eスポーツの専門家に加えて、プロeスポーツ選手が一同を介す事で他に見ることのできない議論に注目!"]

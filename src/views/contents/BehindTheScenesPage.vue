@@ -19,7 +19,7 @@ export default {
     ContentPageTemplate
   },
   setup() {
-    const videoSrc = "https://www.youtube.com/embed/q48xVf-AbmA"
+    const videoSrc = ""
     const contentGenre = "Behind The Scenes"
     const contentTitle = "新しい学校のリーダーズ feat. Nu ink."
     const contentDescriptions = [

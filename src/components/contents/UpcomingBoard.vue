@@ -1,20 +1,26 @@
 <template>
   <div class="upcoming-board">
     <div class="upcoming-board__content">
-      <div class="upcoming-board__sentence">
-        公開まで
-        <div class="upcoming-board__time">
-          {{ displayTime }}
-        </div>
+      <div class="upcoming-board__message">
+        本作はイベント当日にライブ配信にて<br>
+        公開しますのでお楽しみに！
+      </div>
+      <div class="upcoming-board__announce">
+        ※作品はイベント終了後もアーカイブとして<br v-if="isResponsivePhone">
+        期間を限り閲覧可能にする予定です。
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { useStore } from 'vuex'
 import { ref, onMounted, computed } from 'vue'
 export default {
   setup() {
+    const store = useStore()
+    const isResponsivePhone = computed(() => store.state.isResponsivePhone)
+
     onMounted(() => {
       setInterval(updateTimer, 1000)
     })
@@ -41,7 +47,7 @@ export default {
         + Math.floor(sec.value).toString() + '秒'
     })
     
-    return { displayTime }
+    return { displayTime, isResponsivePhone }
   }
 }
 </script>
@@ -51,11 +57,8 @@ export default {
   color: #000;
   background-color: #fff;
   text-align: center;
-  width: 30rem;
+  width: 100%;
   position: relative;
-  @include respond(tablet) {
-    width: 100%;
-  }
   &::before {
     content: "";
     display: block;
@@ -72,8 +75,19 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  &__sentence {
-    font-size: $font-size-upcoming-board;
+  &__message {
+    font-size: $font-size-upcoming-board-message;
+    @include respond(phone) {
+      font-size: 1.19em;
+    }
+  }
+  &__announce {
+    color: #444;
+    margin-top: 1.618rem;
+    font-size: $font-size-upcoming-board-announce;
+    @include respond(phone) {
+      font-size: 0.875em;
+    }
   }
 }
 </style>

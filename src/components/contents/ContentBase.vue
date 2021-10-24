@@ -20,14 +20,9 @@
         :paddingRight="40"
       />
       <div class="content-base__thumbnail" ref="thumbnailRef">
-        <template v-if="isReleased">
-          <thumbnail
-            :imageName="imageName"
-          />
-        </template>
-        <template v-else>
-          <upcoming-board />
-        </template>
+        <thumbnail
+          :imageName="imageName"
+        />
       </div>
       <content-info
         v-if="isResponsive || (isMounted && !isInfoLeft)"
@@ -50,12 +45,10 @@
 <script>
 import { ref, onMounted, computed, watch } from 'vue'
 import { useStore } from 'vuex'
-import UpcomingBoard from '@/components/contents/UpcomingBoard.vue'
 import Thumbnail from '@/components/contents/Thumbnail.vue'
 import ContentInfo from '@/components/contents/ContentInfo.vue'
 export default {
   components: {
-    UpcomingBoard,
     Thumbnail,
     ContentInfo
   },
@@ -83,10 +76,6 @@ export default {
     aTagLink: {
       type: String,
       default: ''
-    },
-    isReleased: {
-      type: Boolean,
-      default: false
     },
     imageName: {
       type: String,
