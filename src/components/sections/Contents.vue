@@ -8,6 +8,7 @@
         CONTENTS
       </div>
       <contents-overview />
+      <you-tube-live-board />
       <content-list
         :contents="contents"
       />
@@ -19,6 +20,7 @@
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import SectionBase from '@/components/common/SectionBase.vue'
+import YouTubeLiveBoard from '@/components/contents/YouTubeLiveBoard.vue'
 import ContentsOverview from '@/components/contents/ContentsOverview.vue'
 import ContentList from '@/components/contents/ContentList.vue'
 import { gsap, Power2 } from 'gsap'
@@ -28,6 +30,7 @@ gsap.registerPlugin(ScrollTrigger, CSSRulePlugin)
 export default {
   components: {
     SectionBase,
+    YouTubeLiveBoard,
     ContentsOverview,
     ContentList
   },

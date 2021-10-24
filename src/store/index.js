@@ -7,7 +7,8 @@ export default createStore({
       isDrawingOn: false,
       isResponsiveTablet: false,
       isResponsivePhone: false,
-      scrollTopPos: 0
+      scrollTopPos: 0,
+      timeDiff: 0,
     }
   },
   mutations: {
@@ -25,6 +26,9 @@ export default createStore({
     },
     setScrollTopPos(state, payload) {
       state.scrollTopPos = payload.scrollTopPos
+    },
+    setTimeDiff(state, payload) {
+      state.timeDiff = payload.diff
     }
   },
   actions: {
