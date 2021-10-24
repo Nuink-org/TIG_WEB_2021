@@ -10,6 +10,7 @@
     <template v-if="isAnimCompleted">
       <about />
       <contents />
+      <time-table />
       <news />
       <page-footer />
     </template>
@@ -24,6 +25,7 @@ import Drawing from '@/components/three/Drawing.vue'
 import Landing from '@/components/sections/Landing.vue'
 import About from '@/components/sections/About.vue'
 import Contents from '@/components/sections/Contents.vue'
+import TimeTable from '@/components/sections/TimeTable.vue'
 import News from '@/components/sections/News.vue'
 import PageFooter from '@/components/sections/PageFooter.vue'
 export default {
@@ -33,6 +35,7 @@ export default {
     Landing,
     About,
     Contents,
+    TimeTable,
     News,
     PageFooter
   },
