@@ -133,9 +133,9 @@ export default {
     max-width: 600px;
     margin: 3rem auto 0;
     text-align: center;
-    line-height: $sentence-height;
+    line-height: $about-sentence-height;
     @include respond(phone) {
-      line-height: 1.5rem;
+      line-height: 1.85rem;
     }
   }
   &-paragraph + &-paragraph {
