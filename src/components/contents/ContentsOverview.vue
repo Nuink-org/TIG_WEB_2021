@@ -3,7 +3,9 @@
     <div class="contents-overview__sentence">
       TIGではオンラインで楽しめる6つの企画を実施します。<br>
       メイキングムービーや豪華ゲストとの対談動画に加えて、<br v-if="isResponsive">インタラクティブに楽しめる企画も用意しています！<br>
-      各企画は筑波大学学園祭「雙峰祭」に合わせて<br v-if="isResponsive">随時公開するのでお見逃しなく!
+      <br>
+      映像作品はTIG当日11月7日(日曜日)に<br v-if="isResponsive">YouTube Liveにて生配信します。<br>
+      生配信映像はここに掲載しますのでお見逃しなく！
     </div>
   </div>
 </template>
