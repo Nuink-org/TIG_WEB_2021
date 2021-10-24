@@ -23,6 +23,7 @@ export default {
 
 <style scoped lang="scss">
 .contents-overview {
+  opacity: 1;
   @include respond(phone) {
     font-size: 0.9em;
   }

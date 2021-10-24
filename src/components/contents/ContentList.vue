@@ -3,6 +3,7 @@
     <content-base
       v-for="(content, idx) in contents"
       :key="content.titleEN"
+      :class="`content-base__${idx}`"
       :isInfoLeft="isInfoLeft(idx)"
       :titleEN="content.titleEN"
       :titleJP="content.titleJP"
