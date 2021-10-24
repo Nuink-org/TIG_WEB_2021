@@ -93,7 +93,7 @@ export default {
         ease: Power2.easeInOut,
         opacity: 0,
         transform: 'translate(-100%, 0%)',
-        duration: 1.618,
+        duration: 1.1,
         delay: 0.18
       })
       gsap.from('.news-item', {
@@ -102,19 +102,19 @@ export default {
           start: 'top center'
         },
         ease: 'ease-out',
-        duration: 1.68,
+        duration: 1.0,
         opacity: 0,
-        stagger: 0.618,
-        delay: 1
+        stagger: 0.38,
+        delay: 0.618
       })
-      const newsTwitterDealy = isResponsive.value ? 1 + newsList.length : 1
+      const newsTwitterDealy = isResponsive.value ? (1 + newsList.length) * 0.618 : 0.618
       gsap.from('.news-twitter', {
         scrollTrigger: {
           trigger: '.news',
           start: 'top center'
         },
         ease: 'ease-out',
-        duration: 1.68,
+        duration: 1,
         opacity: 0,
         delay: newsTwitterDealy
       })
@@ -124,9 +124,7 @@ export default {
       isTweetLoaded, 
       (newIsTweetLoaded, oldIsTweetLoaded) => {
       if (newIsTweetLoaded && !oldIsTweetLoaded) {
-        setTimeout(() => {
-          setAnimation()
-        }, 1000)
+        setTimeout(setAnimation, 1000)
       }
     })
 
