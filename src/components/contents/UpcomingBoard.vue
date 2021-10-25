@@ -1,13 +1,18 @@
 <template>
   <div class="upcoming-board">
     <div class="upcoming-board__content">
-      <div class="upcoming-board__message">
+      <div class="upcoming-board__message" v-if="isOurs">
         本作はイベント当日にライブ配信にて<br>
         公開しますのでお楽しみに！
       </div>
       <div class="upcoming-board__announce">
-        ※作品はイベント終了後もアーカイブとして<br v-if="isResponsivePhone">
-        期間を限り閲覧可能にする予定です。
+        <template v-if="isOurs">
+          ※作品はイベント終了後もアーカイブとして<br v-if="isResponsivePhone">
+          期間を限り閲覧可能にする予定です。
+        </template>
+        <template v-else>
+          ※本企画は筑波大学学園祭「雙峰祭」の企画として公開されます。
+        </template>
       </div>
     </div>
   </div>
@@ -17,6 +22,12 @@
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 export default {
+  props: {
+    isOurs: {
+      type: Boolean,
+      default: true,
+    }
+  },
   setup() {
     const store = useStore()
     const isResponsivePhone = computed(() => store.state.isResponsivePhone)

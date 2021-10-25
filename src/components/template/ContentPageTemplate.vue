@@ -10,7 +10,10 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
       />
-      <upcoming-board v-else />
+      <upcoming-board 
+        v-else 
+        :isOurs="isOurs"
+      />
     </div>
     <div class="content-pageTemplate__body">
       <div class="content-pageTemplate__contentGenre">
@@ -56,6 +59,10 @@ export default {
     contentDescriptions: {
       type: Array,
       default: () => []
+    },
+    isOurs: {
+      type: Boolean,
+      default: true
     }
   },
   setup(props) {
