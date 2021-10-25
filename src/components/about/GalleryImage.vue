@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-image" :style="{'height': `${imageHeight}px`}">
-    <img class="lazy-load" :src="imgSrc">
+    <img class="lazy-load" :data-src="imgSrc">
   </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
   min-height: 250px;
   max-height: 300px;
   img {
+    transform: translateZ(0);
     width: auto;
     height: 100%;
   }

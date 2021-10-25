@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ref, watch, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Cursor from '@/components/common/Cursor.vue'
 import Drawing from '@/components/three/Drawing.vue'
@@ -67,14 +67,8 @@ export default {
     const store = useStore()
     const isDrawingOn = computed(() => store.state.isDrawingOn)
     const isAnimCompleted = computed(() => store.state.isLandingAnimCompleted)
-    const isScrollable = ref(false)
     const isResponsive = computed(() => store.state.isResponsiveTablet)
-
-    watch(isAnimCompleted, () => {
-      setTimeout(() => {
-        isScrollable.value = true
-      }, 100)
-    })
+    const isScrollable = computed(() => store.state.isScrollable)
 
     const updateTimer = (() => {
       const curTime = new Date()
@@ -91,9 +85,6 @@ export default {
         store.commit('addResponsivenessTablet', { width: window.outerWidth })
         store.commit('addResponsivenessPhone', { width: window.outerWidth }) 
       })
-      if (isAnimCompleted.value) {
-        isScrollable.value = true
-      }
     })
 
     return { isDrawingOn, isAnimCompleted, isScrollable, isResponsive }
