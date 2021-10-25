@@ -1,6 +1,5 @@
 <template>
   <div class="concept">
-    <!-- <div class="v-line" />  -->
     <div class="concept-title">
       <div v-for="(word, idx) in conceptTitle"
         :key="`word${idx}`"
@@ -54,7 +53,7 @@ export default {
       for (let i = 0; i < conceptTitle.length; i++) {
         gsap.to(`.concept-title__word${i}`, {
           opacity: 1, 
-          delay: 1 + Math.random() * 0.618,
+          delay: 1.5 + Math.random() * 0.18,
           ease: 'linear',
           duration: duration1
         })
@@ -63,7 +62,7 @@ export default {
         if (i === conceptSubTitle.length-1) {
           gsap.to(`.concept-subTitle__word${i}`, {
             opacity: 1, 
-            delay: 2 + Math.random() * 0.618,
+            delay: 2.5 + Math.random() * 0.18,
             ease: 'linear',
             duration: duration1,
             onComplete: () => {
@@ -73,7 +72,7 @@ export default {
         } else {
           gsap.to(`.concept-subTitle__word${i}`, {
             opacity: 1, 
-            delay: 2 + Math.random() * 0.618,
+            delay: 2.5 + Math.random() * 0.18,
             ease: 'linear',
             duration: duration1,
           })
@@ -86,7 +85,7 @@ export default {
         opacity: 1,
         ease: 'linear',
         delay: 1.5,
-        stagger: 0.1,
+        stagger: 0.07,
         duration: duration2,
         onComplete: () => {
           isSentenceRevealed.value = true
@@ -188,14 +187,6 @@ export default {
   align-items: center;
   text-align: center;
   color: #fff;
-  .v-line {
-    border-left: 0.5px solid #fff;
-    height: 100vh;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    margin-left: -0.25px;
-  }
   &-title, &-subTitle, &-description {
     &__word {
       display: inline-block;
