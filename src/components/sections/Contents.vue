@@ -69,10 +69,10 @@ export default {
       },
       {
         titleEN: "Projection Mapping",
-        titleJP: "筑波大生による映像作品「シブキ」",
+        titleJP: "「シブキ」",
         description: " ダンスとプロジェクションマッピングの融合をコンセプトに、映像作品を作り上げました。映像の美しさはもちろん、オーディオビジュアルや眼前性、時代性など、見所盛りだくさんです！是非ご覧ください！",
         pageName: 'ProjectionMapping',
-        imageName: 'projection_mapping_thumbnail1.jpg',
+        imageName: 'projection_mapping_thumbnail1.png',
       },
       {
         titleEN: "Talk Session",
