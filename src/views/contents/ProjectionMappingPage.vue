@@ -5,6 +5,8 @@
       :contentGenre="contentGenre"
       :contentTitle="contentTitle"
       :contentDescriptions="contentDescriptions"
+      :isOurs="true"
+      :announceSentences="announceSentences"
     >
       <template #body>
         <collaboration-list :collaborators="collaborators" />
@@ -38,8 +40,11 @@ export default {
       sentence: 'テクノロジーを中心にオーディオビジュアル、バイオアート、メディアアート、デザインなど様々な領域で制作活動を行う筑波大学生が集まる団体',
       isTParty: true
     }]
+    const announceSentences = [
+      "※本作はライブ配信時のみ公開する予定です。"
+    ]
     
-    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators }
+    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators, announceSentences }
   }
 }
 </script>

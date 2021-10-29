@@ -6,13 +6,11 @@
         公開しますのでお楽しみに！
       </div>
       <div class="upcoming-board__announce">
-        <template v-if="isOurs">
-          ※作品はイベント終了後もアーカイブとして<br v-if="isResponsivePhone">
-          期間を限り閲覧可能にする予定です。
-        </template>
-        <template v-else>
-          ※本企画は筑波大学学園祭「雙峰祭」の企画として公開されます。
-        </template>
+        <div v-for="(sentence, idx) in announceSentences"
+          :key="idx"
+        >
+          {{ sentence }}
+        </div>
       </div>
     </div>
   </div>
@@ -25,7 +23,11 @@ export default {
   props: {
     isOurs: {
       type: Boolean,
-      default: true,
+      default: true
+    },
+    announceSentences: {
+      type: Array,
+      default: () => []
     }
   },
   setup() {
@@ -39,6 +41,7 @@ export default {
 
 <style scoped lang="scss">
 .upcoming-board {
+  font-family: $font-family-jp;
   color: #000;
   background-color: #fff;
   text-align: center;

@@ -6,6 +6,7 @@
       :contentTitle="contentTitle"
       :contentDescriptions="contentDescriptions"
       :isOurs="false"
+      :announceSentences="announceSentences"
     >
       <template #body>
         <collaboration-list :collaborators="collaborators" />
@@ -48,8 +49,11 @@ export default {
         sentence: 'ヨビノリの顔。東京大学大学院卒業。博士課程進学とともに6年続けた予備校講師をやめ、科学のアウトリーチ活動の一環としてYouTubeチャンネル「ヨビノリ」の創設を決意。学生時代は理論物理学を専攻しており、学部では「物理化学」を、大学院では「生物物理」を研究。'
       },
     ]
+    const announceSentences = [
+      "※本企画は筑波大学学園祭「雙峰祭」の企画として公開されます。"
+    ]
     
-    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators }
+    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators, announceSentences }
   }
 }
 </script>

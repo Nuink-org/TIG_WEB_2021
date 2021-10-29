@@ -11,8 +11,8 @@
         allowfullscreen
       />
       <upcoming-board 
-        v-else 
-        :isOurs="isOurs"
+        v-else
+        :announceSentences="announceSentences"
       />
     </div>
     <div class="content-pageTemplate__body">
@@ -63,6 +63,10 @@ export default {
     isOurs: {
       type: Boolean,
       default: true
+    },
+    announceSentences: {
+      type: Array,
+      default: () => []
     }
   },
   setup(props) {

@@ -5,6 +5,8 @@
       :contentGenre="contentGenre"
       :contentTitle="contentTitle"
       :contentDescriptions="contentDescriptions"
+      :isOurs="true"
+      :announceSentences="announceSentences"
     >
       <template #body>
         <collaboration-list :collaborators="collaborators" />
@@ -53,8 +55,12 @@ export default {
         sentence: 'NTTコミュニケーション科学基礎研究研究員を経て現在は早稲田大学理工学術院総合研究所客員研究員を務める。e スポーツに関する研究に従事。'
       }
     ]
+    const announceSentences = [
+      "※作品はイベント終了後もアーカイブとして",
+      "期間を限り閲覧可能にする予定です。"
+    ]
     
-    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators }
+    return { videoSrc, contentGenre, contentTitle, contentDescriptions, collaborators, announceSentences }
   }
 }
 </script>

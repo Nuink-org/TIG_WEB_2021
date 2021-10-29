@@ -5,6 +5,8 @@
       :contentGenre="contentGenre"
       :contentTitle="contentTitle"
       :contentDescriptions="contentDescriptions"
+      :isOurs="true"
+      :announceSentences="announceSentences"
     >
       <template #body>
       </template>
@@ -27,8 +29,12 @@ export default {
       "近年話題の人工知能の紹介、Open AI Jukeboxを用いた自動作曲のプログラムの実行の様子、生成された曲を披露します。作詞はNu ink.１年生2人が担当、プログラム実行はNu ink.2年生1人が担当しました。そして、完成した曲はあの世界的アーティストの声で再現されます。",
       "音楽に興味ある方、プログラミングに興味ある方、是非お楽しみください。"
     ]
+    const announceSentences = [
+      "※作品はイベント終了後もアーカイブとして",
+      "期間を限り閲覧可能にする予定です。"
+    ]
     
-    return { videoSrc, contentGenre, contentTitle, contentDescriptions }
+    return { videoSrc, contentGenre, contentTitle, contentDescriptions, announceSentences }
   }
 }
 </script>
