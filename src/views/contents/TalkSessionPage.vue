@@ -49,7 +49,7 @@ export default {
       },
       {
         imageSize: 160,
-        imageName: 'unknown.png',
+        imageName: 'watanabe.jpg',
         link: 'https://nrid.nii.ac.jp/ja/nrid/1000000900086/',
         name: '渡辺 謙',
         sentence: 'NTTコミュニケーション科学基礎研究研究員を経て現在は早稲田大学理工学術院総合研究所客員研究員を務める。e スポーツに関する研究に従事。'
