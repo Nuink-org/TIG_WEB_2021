@@ -26,27 +26,27 @@ const routes = [
     component: ContentsPage,
     children: [
       {
-        path: '/behind_the_scenes',
+        path: 'behind_the_scenes',
         name: 'BehindTheScenes',
         component: BehindTheScenesPage
       },
       {
-        path: '/music_experiment',
+        path: 'music_experiment',
         name: 'MusicExperiment',
         component: MusicExperimentPage
       },
       {
-        path: '/radio',
+        path: 'radio',
         name: 'Radio',
         component: RadioPage
       },
       {
-        path: '/projection_mapping',
+        path: 'projection_mapping',
         name: 'ProjectionMapping',
         component: ProjectionMappingPage
       },
       {
-        path: '/talk_session',
+        path: 'talk_session',
         name: 'TalkSession',
         component: TalkSessionPage
       }
