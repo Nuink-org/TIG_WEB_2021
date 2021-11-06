@@ -72,7 +72,7 @@ export default {
 
     const updateTimer = (() => {
       const curTime = new Date()
-      const targetTime = new Date('2021-11-07T13:00:00')
+      const targetTime = new Date('2021-11-07T00:00:00')
       const diff = targetTime.getTime() - curTime.getTime()
       store.commit('setTimeDiff', { diff: diff })
     })
