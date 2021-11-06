@@ -55,6 +55,14 @@ export default {
     const tweetSrc = 'https://twitter.com/NuinkTSUKUBA?ref_src=twsrc%5Etfw'
     const newsList = [
       {
+        date: '2021.11.07',
+        content: 'TSUKUBA INNOVATION GALLERY開催日。'
+      },
+      {
+        date: '2021.11.06',
+        content: 'YouTube live配信urlを公開しました。'
+      },
+      {
         date: '2021.10.24',
         content: 'TSUKUBA INNOVATION GALLERYのwebサイトを公開しました。'
       },
