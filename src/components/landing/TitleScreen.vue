@@ -203,9 +203,9 @@ export default {
         delay: startMoveDelay + 3,
         left: `${dateLeft}px`,
         ease: 'expo.out',
-        onComplete: () => {
-          store.commit('completeLandingAnim') // animation完了を通知
-        }
+        // onComplete: () => {
+        //   store.commit('completeLandingAnim') // animation完了を通知
+        // }
       })
       gsap.to('.organizer', {
         duration: 1.5,
@@ -249,6 +249,9 @@ export default {
       if (isAnimCompleted.value) {
         skipAnimation()
       } else {
+        // 当初はタイトルアニメーション全てが終わった後にcompleteLandingAnimをcommitしていたが、
+        // ランディングアニメーションの時間が長すぎるためタイトルを開始時点でcommitするようにした。
+        store.commit('completeLandingAnim')
         startAnimation()
       }
       window.addEventListener('resize', resetTitlePos)
