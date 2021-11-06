@@ -19,7 +19,7 @@ import { useStore } from 'vuex'
 export default {
   setup() {
     const store = useStore()
-    const videoSrc = "https://www.youtube.com/watch?v=q_akYLDs078"
+    const videoSrc = "https://www.youtube.com/embed/q_akYLDs078"
     const liveBoard = ref(null)
     const iframeHeight = ref(0)
     const isLivePublished = computed(() => store.state.timeDiff <= 0)
